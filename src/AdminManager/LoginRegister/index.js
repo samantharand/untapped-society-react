@@ -27,12 +27,13 @@ export default class LoginRegister extends Component {
         }
       })
       const json = await res.json();
-      console.log(json)
+      // console.log(json)
       return json;
     } catch (err) {
       console.error("error")
     }
   }
+
   // Register event handeler
   onRegister = async (e) => {
     e.preventDefault()
@@ -43,11 +44,48 @@ export default class LoginRegister extends Component {
         const result = await this.register({
           username: this.state.username,
           password: this.state.password,
-          jobseeker: true
+          jobseeker: false
         })
+        // console.log(result)
+        this.props.loggedIn(result.data.id)
       } catch (err) {
         console.error(err)
       }
+    }
+  }
+
+  // API call for login with info
+  login = async (info) => {
+    const url = "http://localhost:8000/api/v1/users/login"
+    try {
+      const res = await fetch(url, {
+        credentials: 'include',
+        method: "POST",
+        body: JSON.stringify(info),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const json = await res.json();
+      // console.log(json)
+      return json;
+    } catch (err) {
+      console.error("error")
+    }
+  }
+
+  // Login event handler
+  onLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await this.login({
+        username: this.state.username,
+        password: this.state.password
+      });
+      // console.log(result)
+      this.props.loggedIn(result.data.id)
+    } catch (err) {
+      console.error(err)
     }
   }
 
@@ -82,7 +120,24 @@ export default class LoginRegister extends Component {
       </form>
     )
     const LoginForm = (
-      <h1>this is login form</h1>
+      <form onSubmit={this.onLogin}>
+        <label>Username</label>
+        <input 
+        placeholder='Username'
+        name='username'
+        value={username}
+        onChange={this.onChange}
+        />
+        <label>Password</label>
+        <input 
+        placeholder='Password' 
+        type='password'
+        name='password'
+        value={password}
+        onChange={this.onChange}
+        />
+        <button>Submit</button>
+      </form>
     )
     return (
       <React.Fragment>
