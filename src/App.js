@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import AdminManager from './AdminManager'
 import { 
   BrowserRouter as Router,
   Switch,
@@ -9,11 +9,12 @@ import {
 } from "react-router-dom"
 
 function App() {
+
   return (
-    <Router>
+    <Router className="App">
       <Switch>
         <Route path="/admin">
-          admin login
+          <AdminManager/>
         </Route>
       </Switch>
     </Router>
