@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LoginRegister from './LoginRegister';
+import CompanyInfoManager from './CompanyInfoManager';
 
 export default class AdminManager extends Component {
   constructor() {
@@ -21,7 +22,7 @@ export default class AdminManager extends Component {
     return (
       <React.Fragment>
         <LoginRegister loggedIn={this.userLoggedIn}/>
-        { loggedIn ? "you are logged in" : "you are not logged in"}
+        { loggedIn ? <CompanyInfoManager/> : "you are not logged in"}
       </React.Fragment>
     );
   }

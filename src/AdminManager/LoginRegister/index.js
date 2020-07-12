@@ -4,7 +4,7 @@ export default class LoginRegister extends Component {
   constructor() {
     super();
     this.state = {
-      loginForm: false, // true if login is selected, false if user is trying to register
+      loginForm: true, // true if login is selected, false if user is trying to register
       username: "",
       password: "",
       checkPassword: ""
