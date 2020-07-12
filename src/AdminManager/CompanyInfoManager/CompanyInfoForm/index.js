@@ -25,6 +25,35 @@ export default class CompanyInfoForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  // create company info
+  create = async (info) => {
+    const url = "http://localhost:8000/api/v1/companies/create";
+    try {
+      const res = await fetch(url, {
+        credentials: 'include',
+        method: "POST",
+        body: JSON.stringify(info),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const json = await res.json();
+      return json;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  // create handler
+  onCreate = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await this.create(this.state);
+      console.log(result);
+    } catch (err) {
+      console.error(err)
+    }
+  }
   render() {
     const {
       name, description, tagline, address, industry,
@@ -32,7 +61,7 @@ export default class CompanyInfoForm extends Component {
       instagram, pinterest, youtube
     } = this.state
     return (
-      <form>
+      <form onSubmit={this.onCreate}>
         <label>Company name</label>
         <input 
         placeholder='Company name'
@@ -117,6 +146,7 @@ export default class CompanyInfoForm extends Component {
         value={youtube}
         onChange={this.onChange}
         />
+        <button>Create</button>
       </form>
     )
   }
