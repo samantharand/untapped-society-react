@@ -21,8 +21,11 @@ export default class AdminManager extends Component {
     const {loggedIn} = this.state
     return (
       <React.Fragment>
-        <LoginRegister loggedIn={this.userLoggedIn}/>
-        { loggedIn ? <CompanyInfoManager/> : "you are not logged in"}
+        
+        { loggedIn 
+          ? <CompanyInfoManager/> 
+          : <LoginRegister loggedIn={this.userLoggedIn}/>
+        }
       </React.Fragment>
     );
   }
