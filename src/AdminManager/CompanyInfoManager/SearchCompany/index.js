@@ -36,6 +36,11 @@ export default class SearchCompany extends Component {
 
   render() {
     const { query } = this.state;
+    const results = this.state.results.map((result, key) => {
+      return (
+        <li key={key}>{result.name}</li>
+        )
+    })
     console.log(this.state)
     return (
       <React.Fragment>
@@ -46,6 +51,7 @@ export default class SearchCompany extends Component {
         value={query}
         onChange={this.handleChange}
         />
+        <ol>{results}</ol>
       </React.Fragment>
     );
   }
