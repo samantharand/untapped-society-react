@@ -27,7 +27,7 @@ export default class CompanyInfoForm extends Component {
 
   // create company info
   create = async (info) => {
-    const url = "http://localhost:8000/api/v1/companies/create";
+    const url = process.env.REACT_APP_API_URL + "api/v1/companies/create";
     try {
       const res = await fetch(url, {
         credentials: 'include',
