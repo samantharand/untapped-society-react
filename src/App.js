@@ -1,23 +1,29 @@
 import React from 'react';
 import './App.css';
 import AdminManager from './AdminManager'
+import Login from './Auth/Login'
+import Register from './Auth/Register'
 import { 
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom"
-import GoogleBtn from './GoogleBtn'
 
 function App() {
 
   return (
     <div>
-      <GoogleBtn />
       <Router className="App">
         <Switch>
           <Route path="/admin">
             <AdminManager/>
+          </Route>
+          <Route path='/login'>
+            <Login/>
+          </Route>
+          <Route path='/register'>
+            <Register/>
           </Route>
         </Switch>
       </Router>
