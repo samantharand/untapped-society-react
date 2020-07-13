@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CompanyInfoForm from './CompanyInfoForm';
 import CompanyInfo from './CompanyInfo';
-
+import SearchCompany from './SearchCompany';
 
 
 export default class CompanyInfoManager extends Component {
@@ -32,16 +32,13 @@ export default class CompanyInfoManager extends Component {
   }
 
   render() {
-    this.getCompanyInfoById(1);
-    const { companyInfo } = this.state
     return (
       <div>
         <h1>First function will be looking up company?</h1>
         <h1>Second function will be adding company</h1>
         <h1>Third function will be delete company info</h1>
         <h1>Lastly will be able to update company info</h1>
-        <CompanyInfoForm/>
-        <CompanyInfo companyInfo={companyInfo}/>
+        <SearchCompany/>
       </div>
     )
   }
