@@ -11,12 +11,15 @@ export default class Profile extends Component {
 	}
 
 	componentDidMount() {
-		this.getProfileDetails()
+		console.log('this.props', this.props);
+
+		console.log('this.props.currentUser.id', this.props.currentUser.id);
+		// this.getProfileDetails(this.props.currentUser.id)
 	}
 
 	// API call to get profile details
-	getProfileDetails = async () => {
-		const url = process.env.REACT_APP_API_URL + 'api/v1/profiles/view'
+	getProfileDetails = async (id) => {
+		const url = process.env.REACT_APP_API_URL + 'api/v1/profiles/view/' + this.props.currentUser.id
 		
 		const profileResult = await fetch(url, {
 			credentials: 'include',

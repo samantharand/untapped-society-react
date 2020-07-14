@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 
 export default class ProfileUpdate extends Component {
-	constructor() {
+	constructor(props) {
 		super()
 
 		this.state = {
-			eduction: '',
-			name: '',
-			date_of_birth: '',
-			email: '',
-			location: '',
-			language: '',
-			ethinicity: '',
-			skillset: '',
-			industry: '',
-			payrange: '' 
+			eduction: props.currentUser.eduction,
+			name: props.currentUser.name,
+			date_of_birth: props.currentUser.date_of_birth,
+			email: props.currentUser.email,
+			location: props.currentUser.location,
+			language: props.currentUser.language,
+			ethinicity: props.currentUser.ethinicity,
+			skillset: props.currentUser.skillset,
+			industry: props.currentUser.industry,
+			payrange: props.currentUser.payrange 
 		}
 	}
 
@@ -43,6 +43,7 @@ export default class ProfileUpdate extends Component {
   onSubmit = async (e) => {
   	e.preventDefault()
   	console.log(this.props.currentUser.id);
+  	console.log(this.props.currentUser);
 
   	try {
 	  	
@@ -137,12 +138,11 @@ export default class ProfileUpdate extends Component {
 						onChange={ this.onChange }		
 					/>
 					<label> payrange </label>
-					<input 
-						placeholder="payrange"
-						name='payrange'
-						value={ payrange }
-						onChange={ this.onChange }		
-					/>
+					<select name='payrange' value={ payrange }>
+						<option value={ payrange }> 1-10 </option>
+						<option value={ payrange }> 11-20 </option>
+						<option value={ payrange }> 21-30 </option>
+					</select>
 					<button> Save Now </button>
 				</form>
 				<p> Skip this step </p>
