@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import CompanyInfoForm from './CompanyInfoForm';
 import CompanyInfo from './CompanyInfo';
 import SearchCompany from './SearchCompany';
+import EditCompanyInfo from './EditCompanyInfo';
 
 
 export default class CompanyInfoManager extends Component {
   constructor() {
     super();
     this.state = {
+      create: false, // true if creating a company
       edit: false, // true if editing a company
       companyId: -1, // the company id
       companyInfo: {}
@@ -31,14 +33,38 @@ export default class CompanyInfoManager extends Component {
     }
   }
 
+  // select company
+  selectCompany = async (id) => {
+    try {
+      await this.getCompanyInfoById(id);
+      await this.setState({ companyId: id })
+      console.log("successfully get company info");
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  // toggle edit
+  toggleEdit = () => {
+    this.setState({ edit: !this.state.edit})
+  }
+
   render() {
+    const { companyId, companyInfo, edit } = this.state;
     return (
       <div>
-        <h1>First function will be looking up company?</h1>
-        <h1>Second function will be adding company</h1>
-        <h1>Third function will be delete company info</h1>
-        <h1>Lastly will be able to update company info</h1>
-        <SearchCompany/>
+        <SearchCompany selectCompany={this.selectCompany}/>
+        {companyId < 0 
+          ? <CompanyInfoForm/>
+          : (edit 
+            ? <EditCompanyInfo 
+              companyInfo={companyInfo}
+              companyId={companyId}/> 
+            : <CompanyInfo 
+              toggleEdit={this.toggleEdit}
+              companyInfo={companyInfo}/>
+            )
+        }
       </div>
     )
   }

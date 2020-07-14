@@ -21,6 +21,7 @@ export default function CompanyInfo(props) {
       <p>instagram: {instagram}</p>
       <p>pinterest: {pinterest}</p>
       <p>youtube: {youtube}</p>
+      <button onClick={props.toggleEdit}>update</button>
     </div>
   )
 }

@@ -38,7 +38,10 @@ export default class SearchCompany extends Component {
     const { query } = this.state;
     const results = this.state.results.map((result, key) => {
       return (
-        <li key={key}>{result.name}</li>
+        <button 
+        key={key}
+        onClick={()=> this.props.selectCompany(result.id)}
+        >{result.name}</button>
         )
     })
     console.log(this.state)
