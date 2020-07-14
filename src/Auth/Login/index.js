@@ -18,7 +18,7 @@ export default class Login extends Component {
   // API call
   login = async (loginInfo) => {
     console.log('login');
-    const url = "http://localhost:8000/api/v1/users/login"
+    const url = process.env.REACT_APP_API_URL + "/api/v1/users/login"
 
     try {
       
@@ -35,6 +35,7 @@ export default class Login extends Component {
       const loginJson = await loginResult.json()
 
       // return loginJson
+      this.props.setCurrentUser(loginJson.data)
       console.log('loginJson', loginJson);
 
     } catch (error) {

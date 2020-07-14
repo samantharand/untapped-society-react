@@ -18,7 +18,7 @@ export default class Register extends Component {
 
   // API call
   register = async (registerInfo) => {
-    const url = "http://localhost:8000/api/v1/users/create"
+    const url = process.env.REACT_APP_API_URL + "/api/v1/users/create"
 
     try {
       
