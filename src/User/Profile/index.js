@@ -11,7 +11,7 @@ export default class Profile extends Component {
 	}
 
 	componentDidMount() {
-		console.log('this.props', this.props);
+		console.log('this.props in user prof', this.props);
 
 		console.log('this.props.currentUser.id', this.props.currentUser.id);
 		this.getProfileDetails(this.props.currentUser.id)
@@ -40,6 +40,8 @@ export default class Profile extends Component {
 			this.setState({
 				profile: profileJson
 			})
+
+			this.props.setCurrentUserProfile(profileJson)
 			
 		} catch (error) {
 			console.error(error)

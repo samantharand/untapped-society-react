@@ -17,6 +17,7 @@ import {
 function App() {
 
   const [currentUser, setCurrentUser] = useState({})
+  const [currentUserProfile, setCurrentUserProfile] = useState({})
 
   return (
     <div>
@@ -36,10 +37,10 @@ function App() {
             <ProfileCreate/>
           </Route>
           <Route path='/profile/update'>
-            <ProfileUpdate currentUser={currentUser}/>
+            <ProfileUpdate currentUser={currentUserProfile}/>
           </Route>
           <Route path='/profile'>
-            <Profile currentUser={currentUser}/>
+            <Profile currentUser={currentUser} setCurrentUserProfile={setCurrentUserProfile}/>
           </Route>
         </Switch>
       </Router>

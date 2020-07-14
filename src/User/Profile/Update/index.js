@@ -18,6 +18,10 @@ export default class ProfileUpdate extends Component {
 		}
 	}
 
+	componentDidMount() {
+		console.log(this.props);
+	}
+
 	onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
