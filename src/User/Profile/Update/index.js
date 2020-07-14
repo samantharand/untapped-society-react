@@ -90,6 +90,7 @@ export default class ProfileUpdate extends Component {
 					<input 
 						placeholder="Date of Birth"
 						name='date_of_birth'
+						type='date'
 						value={ date_of_birth }
 						onChange={ this.onChange }		
 					/>

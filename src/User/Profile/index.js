@@ -39,7 +39,7 @@ export default class Profile extends Component {
 		return (
 			<React.Fragment>
 				<p> profile </p>
-				<p> { profile.date_of_birth} </p>
+				<p> {profile.date_of_birth} </p>
 				<p> {profile.education} </p>
 				<p> {profile.email} </p>
 				<p> {profile.ethinicity} </p>
