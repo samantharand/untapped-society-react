@@ -39,7 +39,7 @@ function App() {
             <ProfileUpdate currentUser={currentUser}/>
           </Route>
           <Route path='/profile'>
-            <Profile currentUser/>
+            <Profile currentUser={currentUser}/>
           </Route>
         </Switch>
       </Router>

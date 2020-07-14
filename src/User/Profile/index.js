@@ -14,31 +14,41 @@ export default class Profile extends Component {
 		console.log('this.props', this.props);
 
 		console.log('this.props.currentUser.id', this.props.currentUser.id);
-		// this.getProfileDetails(this.props.currentUser.id)
+		this.getProfileDetails(this.props.currentUser.id)
 	}
 
 	// API call to get profile details
 	getProfileDetails = async (id) => {
-		const url = process.env.REACT_APP_API_URL + 'api/v1/profiles/view/' + this.props.currentUser.id
-		
-		const profileResult = await fetch(url, {
-			credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-		})
+		const url = process.env.REACT_APP_API_URL + 'api/v1/profiles/view/' + id
+		console.log('id from getProfileDetails', id);
+		try {
 
-		console.log('profileResult', profileResult);
+			const profileResult = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+	      headers: {
+	        'Content-Type': 'application/json'
+	      }
+			})
 
-		const profileJson = await profileResult.json()
-		console.log('profileJson', profileJson);
-		this.setState({
-			profile: profileJson
-		})
+			console.log('profileResult', profileResult);
+
+			const profileJson = await profileResult.json()
+
+			console.log('profileJson', profileJson);
+			
+			this.setState({
+				profile: profileJson
+			})
+			
+		} catch (error) {
+			console.error(error)
+		}
 	}
 
 	render() {
 		const { profile } = this.state
+
 		return (
 			<React.Fragment>
 				<p> profile </p>
