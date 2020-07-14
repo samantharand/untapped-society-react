@@ -3,6 +3,7 @@ import './App.css';
 import AdminManager from './AdminManager'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
+import ProfileCreate from './User/ProfileCreate'
 import { 
   BrowserRouter as Router,
   Switch,
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path='/register'>
             <Register/>
+          </Route>
+          <Route path='/createprofile'>
+            <ProfileCreate/>
           </Route>
         </Switch>
       </Router>
