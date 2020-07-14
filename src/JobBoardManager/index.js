@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import JobPostForm from './JobPostForm';
 
 export default class JobBoardManager extends Component {
   constructor() {
@@ -10,7 +11,9 @@ export default class JobBoardManager extends Component {
 
   render() {
     return (
-      "some stuff"
+      <React.Fragment>
+        <JobPostForm/>
+      </React.Fragment>
     )
   }
 }
