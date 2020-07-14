@@ -4,6 +4,7 @@ import AdminManager from './AdminManager'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 import ProfileCreate from './User/ProfileCreate'
+import Profile from './User/Profile'
 import { 
   BrowserRouter as Router,
   Switch,
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path='/createprofile'>
             <ProfileCreate/>
+          </Route>
+          <Route path='/profile'>
+            <Profile/>
           </Route>
         </Switch>
       </Router>

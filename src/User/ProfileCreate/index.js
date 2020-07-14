@@ -24,7 +24,7 @@ export default class ProfileCreate extends Component {
 
   // API call
   submitProfile = async (profileInfo) => {
-  	const url = 'http://localhost:8000/api/v1/profiles/create'
+  	const url = process.env.REACT_APP_API_URL + 'api/v1/profiles/create'
 
   	const submitProfileResponse = await fetch(url, {
 	    credentials: 'include',
