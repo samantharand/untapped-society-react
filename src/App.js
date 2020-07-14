@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import AdminManager from './AdminManager'
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 import ProfileCreate from './User/ProfileCreate'
 import Profile from './User/Profile'
+import ProfileUpdate from './User/Profile/Update'
 import { 
   BrowserRouter as Router,
   Switch,
@@ -14,6 +15,8 @@ import {
 
 function App() {
 
+  const [currentUser, setCurrentUser] = useState({})
+
   return (
     <div>
       <Router className="App">
@@ -22,13 +25,16 @@ function App() {
             <AdminManager/>
           </Route>
           <Route path='/login'>
-            <Login/>
+            <Login setCurrentUser={setCurrentUser}/>
+            <ProfileUpdate currentUser={currentUser}/>
           </Route>
           <Route path='/register'>
-            <Register/>
+            <Register setCurrentUser={setCurrentUser}/>
           </Route>
           <Route path='/createprofile'>
             <ProfileCreate/>
+          </Route>
+          <Route path='/profile/update'>
           </Route>
           <Route path='/profile'>
             <Profile/>

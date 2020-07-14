@@ -35,6 +35,7 @@ export default class Login extends Component {
       const loginJson = await loginResult.json()
 
       // return loginJson
+      this.props.setCurrentUser(loginJson.data)
       console.log('loginJson', loginJson);
 
     } catch (error) {

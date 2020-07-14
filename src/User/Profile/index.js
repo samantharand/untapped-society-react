@@ -35,8 +35,21 @@ export default class Profile extends Component {
 	}
 
 	render() {
+		const { profile } = this.state
 		return (
-			<p> profile </p>
+			<React.Fragment>
+				<p> profile </p>
+				<p> { profile.date_of_birth} </p>
+				<p> {profile.education} </p>
+				<p> {profile.email} </p>
+				<p> {profile.ethinicity} </p>
+				<p> {profile.industry} </p>
+				<p> {profile.language} </p>
+				<p> {profile.location} </p>
+				<p> {profile.name} </p>
+				<p> {profile.payrange} </p>
+				<p> {profile.skillset} </p>
+			</React.Fragment>
 		)
 	}
 
