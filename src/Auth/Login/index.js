@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleBtn from '../../GoogleBtn'
+import { Form, Button, Label, Input } from 'semantic-ui-react'
 
 export default class Login extends Component {
   constructor() {
@@ -62,29 +63,29 @@ export default class Login extends Component {
   render() {
     const { username, password } = this.state
     return (
-      <React.Fragment>
-        <form onSubmit={ this.onLogin }>
-          <p> Login </p>
-          <label> Username </label>
-          <input 
+      <div className='LoginContainer'>
+        <h3> Login </h3>
+        <Form onSubmit={ this.onLogin }>
+          <Label> Username </Label>
+          <Input 
             placeholder='Username'
             name='username'
             value={ username }
             onChange={ this.onChange }
           />
-          <label> Password </label>
-          <input 
+          <Label> Password </Label>
+          <Input 
             placeholder='Password'
             type='password'
             name='password'
             value={ password }
             onChange={ this.onChange }
           />
-          <button> Login </button>
-        </form>
+          <Button> Login </Button>
+        </Form>
         <p> Or login using google </p>
         <GoogleBtn />
-      </React.Fragment>
+      </div>
     )
   }
 }

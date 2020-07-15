@@ -1,21 +1,26 @@
 import React, { Component } from 'react'
+import { Form, Button, Label, Input, Select } from 'semantic-ui-react'
 
 export default class ProfileUpdate extends Component {
-	constructor() {
+	constructor(props) {
 		super()
 
 		this.state = {
-			eduction: '',
-			name: '',
-			date_of_birth: '',
-			email: '',
-			location: '',
-			language: '',
-			ethinicity: '',
-			skillset: '',
-			industry: '',
-			payrange: '' 
+			eduction: props.currentUser.eduction,
+			name: props.currentUser.name,
+			date_of_birth: props.currentUser.date_of_birth,
+			email: props.currentUser.email,
+			location: props.currentUser.location,
+			language: props.currentUser.language,
+			ethinicity: props.currentUser.ethinicity,
+			skillset: props.currentUser.skillset,
+			industry: props.currentUser.industry,
+			payrange: props.currentUser.payrange 
 		}
+	}
+
+	componentDidMount() {
+		console.log(this.props);
 	}
 
 	onChange = (e) => {
@@ -43,6 +48,7 @@ export default class ProfileUpdate extends Component {
   onSubmit = async (e) => {
   	e.preventDefault()
   	console.log(this.props.currentUser.id);
+  	console.log(this.props.currentUser);
 
   	try {
 	  	
@@ -70,83 +76,86 @@ export default class ProfileUpdate extends Component {
 		const { education, name, date_of_birth, email, location, language, ethinicity, skillset, industry, payrange } = this.state
 		
 		return(
-			<React.Fragment>
-				<form onSubmit={ this.onSubmit }>
-					<label> Education </label>
-					<input 
+			<div className='UpdateProfileContainer'>
+				<Form onSubmit={ this.onSubmit }>
+					<Label> Education </Label>
+					<Input 
 						placeholder="Education"
 						name='education'
 						value={ education }
 						onChange={ this.onChange }		
 					/>
-					<label>  Name </label>
-					<input 
+					<Label>  Name </Label>
+					<Input 
 						placeholder="Name"
 						name='name'
 						value={ name }
 						onChange={ this.onChange }		
 					/>
-					<label> Date of Birth </label>
-					<input 
+					<Label> Date of Birth </Label>
+					<Input 
 						placeholder="Date of Birth"
 						name='date_of_birth'
 						type='date'
 						value={ date_of_birth }
 						onChange={ this.onChange }		
 					/>
-					<label> Email </label>
-					<input 
+					<Label> Email </Label>
+					<Input 
 						placeholder="Email"
 						name='email'
 						value={ email }
 						onChange={ this.onChange }		
 					/>
-					<label> location </label>
-					<input 
+					<Label> location </Label>
+					<Input 
 						placeholder="location"
 						name='location'
 						value={ location }
 						onChange={ this.onChange }		
 					/>
-					<label> language </label>
-					<input 
+					<Label> language </Label>
+					<Input 
 						placeholder="language"
 						name='language'
 						value={ language }
 						onChange={ this.onChange }		
 					/>
-					<label> ethinicity </label>
-					<input 
+					<Label> ethinicity </Label>
+					<Input 
 						placeholder="ethinicity"
 						name='ethinicity'
 						value={ ethinicity }
 						onChange={ this.onChange }		
 					/>
-					<label> skillset </label>
-					<input 
+					<Label> skillset </Label>
+					<Input 
 						placeholder="skillset"
 						name='skillset'
 						value={ skillset }
 						onChange={ this.onChange }		
 					/>
-					<label> industry </label>
-					<input 
+					<Label> industry </Label>
+					<Input 
 						placeholder="industry"
 						name='industry'
 						value={ industry }
 						onChange={ this.onChange }		
 					/>
-					<label> payrange </label>
-					<input 
-						placeholder="payrange"
-						name='payrange'
+					<Label> payrange </Label>
+					<select 
+						name='payrange' 
 						value={ payrange }
-						onChange={ this.onChange }		
-					/>
-					<button> Save Now </button>
-				</form>
+						placeholder='Select Payrange'
+						>
+						<option value={ payrange }> 1-10 </option>
+						<option value={ payrange }> 11-20 </option>
+						<option value={ payrange }> 21-30 </option>
+					</select>
+					<Button> Save Now </Button>
+				</Form>
 				<p> Skip this step </p>
-			</React.Fragment>
+			</div>
 		)
 	}
 }

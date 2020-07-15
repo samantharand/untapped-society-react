@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Segment, Button } from 'semantic-ui-react'
 
 export default class Profile extends Component {
 
@@ -11,44 +12,75 @@ export default class Profile extends Component {
 	}
 
 	componentDidMount() {
-		this.getProfileDetails()
+		console.log('this.props in user prof', this.props);
+
+		console.log('this.props.currentUser.id', this.props.currentUser.id);
+		this.getProfileDetails(this.props.currentUser.id)
 	}
 
 	// API call to get profile details
-	getProfileDetails = async () => {
-		const url = process.env.REACT_APP_API_URL + 'api/v1/profiles/view'
-		
-		const profileResult = await fetch(url, {
-			credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-		})
+	getProfileDetails = async (id) => {
+		const url = process.env.REACT_APP_API_URL + 'api/v1/profiles/view/' + id
+		console.log('id from getProfileDetails', id);
+		try {
 
-		console.log('profileResult', profileResult);
+			const profileResult = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+	      headers: {
+	        'Content-Type': 'application/json'
+	      }
+			})
 
-		const profileJson = await profileResult.json()
-		console.log('profileJson', profileJson);
-		this.setState({
-			profile: profileJson
-		})
+			console.log('profileResult', profileResult);
+
+			const profileJson = await profileResult.json()
+
+			console.log('profileJson', profileJson);
+			
+			this.setState({
+				profile: profileJson
+			})
+
+			this.props.setCurrentUserProfile(profileJson)
+			
+		} catch (error) {
+			console.error(error)
+		}
 	}
 
 	render() {
 		const { profile } = this.state
+
 		return (
 			<React.Fragment>
-				<p> profile </p>
-				<p> {profile.date_of_birth} </p>
-				<p> {profile.education} </p>
-				<p> {profile.email} </p>
-				<p> {profile.ethinicity} </p>
-				<p> {profile.industry} </p>
-				<p> {profile.language} </p>
-				<p> {profile.location} </p>
-				<p> {profile.name} </p>
-				<p> {profile.payrange} </p>
-				<p> {profile.skillset} </p>
+				<h1> Welcome, {profile.name} </h1>
+				<div className='BasicInfoContainer'>
+					<Segment className='UserProfilePhotoContainer'>
+						<img src={ profile.photo } />
+					</Segment>
+					<Segment className='PersonalInfoContainer'>
+						<p> name: {profile.name} </p>
+						<p> email: {profile.email} </p>
+						<p> PHONE </p>
+						<p> JOB TITLE </p>
+					</Segment>
+					<Segment className='YourDetails'>
+						<p> education: {profile.education} </p>
+						<p> INCOME </p>
+						<p> location: {profile.location} </p>
+						<p> skillset: {profile.skillset} </p>
+					</Segment>
+					<Button> Edit Info </Button>
+				</div>
+				<Segment>
+					<h4> maybe dont show this stuff? idk! </h4>
+					<p> DOB: {profile.date_of_birth} </p>
+					<p> ethinicity: {profile.ethinicity} </p>
+					<p> industry: {profile.industry} </p>
+					<p> language: {profile.language} </p>
+					<p> payrange: {profile.payrange} </p>
+				</Segment>
 			</React.Fragment>
 		)
 	}
