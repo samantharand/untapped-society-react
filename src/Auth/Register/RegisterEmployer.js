@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
 import GoogleBtn from '../../GoogleBtn'
-import RegisterEmployer from './RegisterEmployer';
 import { Form, Button, Label, Input } from 'semantic-ui-react'
 
 export default class Register extends Component {
   constructor() {
-  	super()
+    super()
 
-  	this.state = {
-  		username: '',
-  		password: '',
+    this.state = {
+      username: '',
+      password: '',
       checkPassword: '',
-      jobseeker: true
-  	}
+      company: ""
+    }
   }
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
-  }
-
-  toggleJobseeker = () => {
-    this.setState({ jobseeker: !this.state.jobseeker })
   }
 
   // API call
@@ -56,14 +51,14 @@ export default class Register extends Component {
       const result = await this.register({
         username: this.state.username,
         password: this.state.password,
-        jobseeker: true
+        jobseeker: false
       })
     }
   }
 
   render() {
-    const { username, password, checkPassword, jobseeker } = this.state
-    const JobseekerRegister = (
+    const { username, password, checkPassword, company } = this.state
+    return (
       <div className='RegisterContainer'>
         <Form onSubmit={ this.register }>
           <h3> Register </h3>
@@ -95,17 +90,6 @@ export default class Register extends Component {
         <p> Or register using google </p>
         <GoogleBtn />
       </div>
-    )
-    const EmployerRegister = (
-      <RegisterEmployer />
-    )
-    return (
-      <React.Fragment>
-      {jobseeker ? JobseekerRegister : EmployerRegister}
-      <Button onClick={ this.toggleJobseeker }> 
-      {(jobseeker ? "register as employer" : "register as job seeker")}
-      </Button>
-      </React.Fragment>
     )
   }
 }

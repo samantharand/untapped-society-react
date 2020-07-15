@@ -4,10 +4,11 @@ export default function CompanyInfo(props) {
   const {
     name, description, tagline, address, industry,
     website, linkedin, github, twitter,
-    facebook, instagram, pinterest, youtube
+    facebook, instagram, pinterest, youtube, photo
   } = props.companyInfo;
   return (
     <div>
+      <img src={photo} />
       <p>name: {name}</p>
       <p>description: {description}</p>
       <p>tagline: {tagline}</p>
