@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleBtn from '../../GoogleBtn'
+import { Form, Button, Label, Input } from 'semantic-ui-react'
 
 export default class Register extends Component {
   constructor() {
@@ -57,37 +58,37 @@ export default class Register extends Component {
   render() {
     const { username, password, checkPassword } = this.state
     return (
-      <React.Fragment>
-        <form onSubmit={ this.register }>
-          <p> Register </p>
-          <label> Username </label>
-          <input 
+      <div className='RegisterContainer'>
+        <Form onSubmit={ this.register }>
+          <h3> Register </h3>
+          <Label> Username </Label>
+          <Input 
             placeholder='Username'
             name='username'
             value={ username }
             onChange={ this.onChange }
           />
-          <label> Password </label>
-          <input 
+          <Label> Password </Label>
+          <Input 
             placeholder='Password'
             type='password'
             name='password'
             value={ password }
             onChange={ this.onChange }
           />
-          <label> Confirm Password </label>
-          <input 
+          <Label> Confirm Password </Label>
+          <Input 
             placeholder='Confirm Password'
             type='password'
             name='checkPassword'
             value={ checkPassword }
             onChange={ this.onChange }
           />
-          <button onClick={ this.onRegister }> Register </button>
-        </form>
+          <Button onClick={ this.onRegister }> Register </Button>
+        </Form>
         <p> Or register using google </p>
         <GoogleBtn />
-      </React.Fragment>
+      </div>
     )
   }
 }

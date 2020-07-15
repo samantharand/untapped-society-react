@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Segment } from 'semantic-ui-react'
 
 export default class Profile extends Component {
 
@@ -53,18 +54,34 @@ export default class Profile extends Component {
 
 		return (
 			<React.Fragment>
-				<p> profile </p>
-				<p> {profile.date_of_birth} </p>
-				<p> {profile.education} </p>
-				<p> {profile.email} </p>
-				<p> {profile.ethinicity} </p>
-				<p> {profile.industry} </p>
-				<p> {profile.language} </p>
-				<p> {profile.location} </p>
-				<p> {profile.name} </p>
-				<p> {profile.payrange} </p>
-				<p> {profile.skillset} </p>
-				<img src={ profile.photo } />
+				<h3> profile </h3>
+				<Segment>
+					<img className='UserProfilePhoto' src={ profile.photo } />
+				</Segment>
+				<Segment className='PersonalInfoContainer'>
+					( name
+					email
+					phone
+					job title )
+					
+
+					here
+				</Segment>
+				<Segment className='Your Details'>
+					<p> education: {profile.education} </p>
+					<p> INCOME </p>
+					<p> location: {profile.location} </p>
+					<p> skillset: {profile.skillset} </p>
+				</Segment>
+				<Segment>
+					<p> {profile.date_of_birth} </p>
+					<p> {profile.email} </p>
+					<p> {profile.ethinicity} </p>
+					<p> {profile.industry} </p>
+					<p> {profile.language} </p>
+					<p> {profile.name} </p>
+					<p> {profile.payrange} </p>
+				</Segment>
 			</React.Fragment>
 		)
 	}
