@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Segment } from 'semantic-ui-react'
+import { Segment, Button } from 'semantic-ui-react'
 
 export default class Profile extends Component {
 
@@ -54,33 +54,32 @@ export default class Profile extends Component {
 
 		return (
 			<React.Fragment>
-				<h3> profile </h3>
+				<h1> Welcome, {profile.name} </h1>
+				<div className='BasicInfoContainer'>
+					<Segment className='UserProfilePhotoContainer'>
+						<img src={ profile.photo } />
+					</Segment>
+					<Segment className='PersonalInfoContainer'>
+						<p> name: {profile.name} </p>
+						<p> email: {profile.email} </p>
+						<p> PHONE </p>
+						<p> JOB TITLE </p>
+					</Segment>
+					<Segment className='YourDetails'>
+						<p> education: {profile.education} </p>
+						<p> INCOME </p>
+						<p> location: {profile.location} </p>
+						<p> skillset: {profile.skillset} </p>
+					</Segment>
+					<Button> Edit Info </Button>
+				</div>
 				<Segment>
-					<img className='UserProfilePhoto' src={ profile.photo } />
-				</Segment>
-				<Segment className='PersonalInfoContainer'>
-					( name
-					email
-					phone
-					job title )
-					
-
-					here
-				</Segment>
-				<Segment className='Your Details'>
-					<p> education: {profile.education} </p>
-					<p> INCOME </p>
-					<p> location: {profile.location} </p>
-					<p> skillset: {profile.skillset} </p>
-				</Segment>
-				<Segment>
-					<p> {profile.date_of_birth} </p>
-					<p> {profile.email} </p>
-					<p> {profile.ethinicity} </p>
-					<p> {profile.industry} </p>
-					<p> {profile.language} </p>
-					<p> {profile.name} </p>
-					<p> {profile.payrange} </p>
+					<h4> maybe dont show this stuff? idk! </h4>
+					<p> DOB: {profile.date_of_birth} </p>
+					<p> ethinicity: {profile.ethinicity} </p>
+					<p> industry: {profile.industry} </p>
+					<p> language: {profile.language} </p>
+					<p> payrange: {profile.payrange} </p>
 				</Segment>
 			</React.Fragment>
 		)
