@@ -14,7 +14,8 @@ export default class ProfileCreate extends Component {
 			ethinicity: '',
 			skillset: '',
 			industry: '',
-			payrange: '' 
+			payrange: '',
+			photo: ''
 		}
 	}
 
@@ -58,11 +59,44 @@ export default class ProfileCreate extends Component {
 				ethinicity: this.state.ethinicity,
 				skillset: this.state.skillset,
 				industry: this.state.industry,
-				payrange: this.state.payrange 
+				payrange: this.state.payrange,
+				photo: this.state.photo
   		})
   	} catch (error) {
   		console.error(error)
   	}
+  }
+
+  // cloudinary handler
+  handleSelectedFile = async (e) => {
+  	const files = e.target.files
+  	const data = new FormData()
+  	const url = process.env.REACT_APP_CLOUDINARY_API_URL
+
+  	data.append('file', files[0])
+  	data.append('upload_preset', 'uptappedsociety')
+
+
+  	console.log('handleSelectedFile');
+  	console.log('e', e);
+  	console.log('e.target', e.target);
+  	console.log('e.target.files', e.target.files);
+  	console.log('url', url);
+  	console.log('files', files);
+  	console.log('files[0]', files[0]);
+  	console.log('data', data);
+
+
+  	const uploadImageResponse = await fetch(url, {
+  		method: 'POST',
+  		body: data
+  	})
+
+  	const file = await uploadImageResponse.json()
+
+  	await this.setState({
+  		photo: file.secure_url
+  	})
   }
 
 	render() {
@@ -71,6 +105,12 @@ export default class ProfileCreate extends Component {
 		return (
 			<React.Fragment>
 				<form onSubmit={ this.onSubmit }>
+					<label> photo </label>
+					<input
+						name='photo'
+						type='file'
+						onChange={ this.handleSelectedFile }
+					/>
 					<label> Education </label>
 					<input 
 						placeholder="Education"

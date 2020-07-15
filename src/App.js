@@ -6,6 +6,7 @@ import Register from './Auth/Register'
 import ProfileCreate from './User/ProfileCreate'
 import Profile from './User/Profile'
 import ProfileUpdate from './User/Profile/Update'
+import Nav from './Common/Header/Nav'
 import { 
   BrowserRouter as Router,
   Switch,
@@ -16,17 +17,18 @@ import {
 function App() {
 
   const [currentUser, setCurrentUser] = useState({})
+  const [currentUserProfile, setCurrentUserProfile] = useState({})
 
   return (
     <div>
       <Router className="App">
+        <Nav Link={Link}/>
         <Switch>
           <Route path="/admin">
             <AdminManager/>
           </Route>
           <Route path='/login'>
             <Login setCurrentUser={setCurrentUser}/>
-            <ProfileUpdate currentUser={currentUser}/>
           </Route>
           <Route path='/register'>
             <Register setCurrentUser={setCurrentUser}/>
@@ -35,9 +37,10 @@ function App() {
             <ProfileCreate/>
           </Route>
           <Route path='/profile/update'>
+            <ProfileUpdate currentUser={currentUserProfile}/>
           </Route>
           <Route path='/profile'>
-            <Profile/>
+            <Profile currentUser={currentUser} setCurrentUserProfile={setCurrentUserProfile}/>
           </Route>
         </Switch>
       </Router>

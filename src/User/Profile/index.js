@@ -11,31 +11,46 @@ export default class Profile extends Component {
 	}
 
 	componentDidMount() {
-		this.getProfileDetails()
+		console.log('this.props in user prof', this.props);
+
+		console.log('this.props.currentUser.id', this.props.currentUser.id);
+		this.getProfileDetails(this.props.currentUser.id)
 	}
 
 	// API call to get profile details
-	getProfileDetails = async () => {
-		const url = process.env.REACT_APP_API_URL + 'api/v1/profiles/view'
-		
-		const profileResult = await fetch(url, {
-			credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-		})
+	getProfileDetails = async (id) => {
+		const url = process.env.REACT_APP_API_URL + 'api/v1/profiles/view/' + id
+		console.log('id from getProfileDetails', id);
+		try {
 
-		console.log('profileResult', profileResult);
+			const profileResult = await fetch(url, {
+				credentials: 'include',
+				method: 'GET',
+	      headers: {
+	        'Content-Type': 'application/json'
+	      }
+			})
 
-		const profileJson = await profileResult.json()
-		console.log('profileJson', profileJson);
-		this.setState({
-			profile: profileJson
-		})
+			console.log('profileResult', profileResult);
+
+			const profileJson = await profileResult.json()
+
+			console.log('profileJson', profileJson);
+			
+			this.setState({
+				profile: profileJson
+			})
+
+			this.props.setCurrentUserProfile(profileJson)
+			
+		} catch (error) {
+			console.error(error)
+		}
 	}
 
 	render() {
 		const { profile } = this.state
+
 		return (
 			<React.Fragment>
 				<p> profile </p>
@@ -49,6 +64,7 @@ export default class Profile extends Component {
 				<p> {profile.name} </p>
 				<p> {profile.payrange} </p>
 				<p> {profile.skillset} </p>
+				<img src={ profile.photo } />
 			</React.Fragment>
 		)
 	}
