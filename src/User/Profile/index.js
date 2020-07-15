@@ -64,6 +64,7 @@ export default class Profile extends Component {
 				<p> {profile.name} </p>
 				<p> {profile.payrange} </p>
 				<p> {profile.skillset} </p>
+				<img src={ profile.photo } />
 			</React.Fragment>
 		)
 	}
