@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import AdminManager from './AdminManager'
+import JobBoardManager from './JobBoardManager';
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 import ProfileCreate from './User/ProfileCreate'
@@ -26,6 +27,9 @@ function App() {
         <Switch>
           <Route path="/admin">
             <AdminManager/>
+          </Route>
+          <Route path="/jobs">
+            <JobBoardManager/>
           </Route>
           <Route path='/login'>
             <Login setCurrentUser={setCurrentUser}/>

@@ -16,7 +16,7 @@ export default class LoginRegister extends Component {
 
   // API call to register a user with info as parameter
   register = async (info) => {
-    const url = "http://localhost:8000/api/v1/users/create"
+    const url = process.env.REACT_APP_API_URL + "api/v1/users/create"
     try {
       const res = await fetch(url, {
         credentials: 'include',
@@ -56,7 +56,7 @@ export default class LoginRegister extends Component {
 
   // API call for login with info
   login = async (info) => {
-    const url = "http://localhost:8000/api/v1/users/login"
+    const url = process.env.REACT_APP_API_URL + "api/v1/users/login"
     try {
       const res = await fetch(url, {
         credentials: 'include',
