@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EmployerInput from './EmployerInput';
 
 export default class CompanyInfoForm extends Component {
   constructor(props) {
@@ -16,7 +17,8 @@ export default class CompanyInfoForm extends Component {
       facebook: props.companyInfo.facebook,
       instagram: props.companyInfo.instagram,
       pinterest: props.companyInfo.pinterest,
-      youtube: props.companyInfo.youtube
+      youtube: props.companyInfo.youtube,
+      employer: props.companyInfo.employer
     };
   }
 
@@ -54,16 +56,29 @@ export default class CompanyInfoForm extends Component {
       console.error(err)
     }
   }
+
+  // add employer email to list
+  addEmployer = (email) => {
+    let { employer } = this.state;
+    if (!employer) {
+      employer = email;
+    } else {
+      employer += "," + email;
+    }
+    this.setState({ employer })
+  }
+
   render() {
     const {
       name, description, tagline, address, industry,
       website, linkedin, twitter, github, facebook,
-      instagram, pinterest, youtube
+      instagram, pinterest, youtube, employer
     } = this.state
-    console.log('this is in edit state')
-    console.log(this.state)
-    console.log('this is in edit props')
-    console.log(this.props)
+    const employerList = (employer && employer.split(',').map((email, key) => {
+      return (
+        <li key={key}>{email}</li>
+      )
+    }))
     return (
       <form onSubmit={this.onUpdate}>
         <label>Company name</label>
@@ -150,6 +165,9 @@ export default class CompanyInfoForm extends Component {
         value={youtube}
         onChange={this.onChange}
         />
+        <label>Employer List</label>
+        <ol>{employerList}</ol>
+        <EmployerInput addEmployer={this.addEmployer}/>
         <button>Update</button>
       </form>
     )
