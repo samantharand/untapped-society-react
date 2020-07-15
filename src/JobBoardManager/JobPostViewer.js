@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import JobPost from './JobPost';
+import JobPostDetail from './JobPostDetail';
 
 export default class JobPostViewer extends Component {
   constructor() {
     super();
     this.state = {
-      jobPosts: []
+      jobPosts: [],
+      selectedJob: -1
     }
   }
 
@@ -26,10 +29,30 @@ export default class JobPostViewer extends Component {
     await this.fetchJobs();
   }
 
+  // select job
+  selectJob = (id) => {
+    this.setState({selectedJob: id})
+  }
   render() {
     console.log(this.state);
+    const { jobPosts, selectedJob } = this.state;
+    const JobPostList = jobPosts.map((jobPost, key) => {
+      return <JobPost 
+      jobPost={jobPost} 
+      selectJob={this.selectJob}
+      key={key}
+      />
+    })
     return(
-      <h2>Job viewer</h2>
+      <React.Fragment>
+        {
+          selectedJob < 0
+          ?
+          <ol>{JobPostList}</ol>
+          :
+          <JobPostDetail jobPost={jobPosts[selectedJob]}/>
+        }
+      </React.Fragment>
     )
   }
 }
