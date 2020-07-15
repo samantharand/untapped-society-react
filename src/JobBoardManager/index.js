@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import JobPostForm from './JobPostForm';
+import JobPostViewer from './JobPostViewer';
 
 export default class JobBoardManager extends Component {
   constructor() {
     super();
     this.state = {
-
+      create: false // true if adding a new post
     }
   }
 
@@ -31,6 +32,7 @@ export default class JobBoardManager extends Component {
   render() {
     return (
       <React.Fragment>
+        <JobPostViewer/>
         <JobPostForm createJobPost={this.createJobPost}/>
       </React.Fragment>
     )
