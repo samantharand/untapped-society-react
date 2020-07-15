@@ -29,7 +29,7 @@ function App() {
             <AdminManager/>
           </Route>
           <Route path="/jobs">
-            <JobBoardManager/>
+            <JobBoardManager currentUser={currentUser}/>
           </Route>
           <Route path='/login'>
             <Login setCurrentUser={setCurrentUser}/>

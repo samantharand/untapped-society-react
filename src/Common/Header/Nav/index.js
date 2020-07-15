@@ -11,6 +11,7 @@ export default function Nav(props) {
 			|
 			<props.Link to='/createprofile'> new profile </props.Link>
 			|
+			<props.Link to='/jobs'> jobs </props.Link>
 		</div>
 	)
 }
