@@ -33,7 +33,7 @@ export default class JobBoardManager extends Component {
     return (
       <React.Fragment>
         <JobPostViewer/>
-        <JobPostForm createJobPost={this.createJobPost}/>
+        {this.state.create && <JobPostForm createJobPost={this.createJobPost}/>}
       </React.Fragment>
     )
   }
