@@ -8,28 +8,32 @@ import ProfileCreate from './User/ProfileCreate'
 import Profile from './User/Profile'
 import ProfileUpdate from './User/Profile/Update'
 import Nav from './Common/Header/Nav'
+import Home from './Common/Home'
 import { 
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom"
+import { createBrowserHistory } from 'history'
+ 
+let history = createBrowserHistory()
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState(null)
   const [currentUserProfile, setCurrentUserProfile] = useState({})
 
   return (
     <div>
-      <Router className="App">
-        <Nav Link={Link}/>
+      <Router className="App" history={ history }>
+        <Nav Link={Link} currentUser={currentUser}/>
         <Switch>
           <Route path="/admin">
             <AdminManager/>
           </Route>
           <Route path="/jobs">
-            <JobBoardManager/>
+            <JobBoardManager currentUser={currentUser}/>
           </Route>
           <Route path='/login'>
             <Login setCurrentUser={setCurrentUser}/>
@@ -38,13 +42,16 @@ function App() {
             <Register setCurrentUser={setCurrentUser}/>
           </Route>
           <Route path='/createprofile'>
-            <ProfileCreate/>
+            <ProfileCreate />
           </Route>
           <Route path='/profile/update'>
             <ProfileUpdate currentUser={currentUserProfile}/>
           </Route>
           <Route path='/profile'>
-            <Profile currentUser={currentUser} setCurrentUserProfile={setCurrentUserProfile}/>
+            <Profile currentUser={currentUser} setCurrentUserProfile={setCurrentUserProfile} Link={Link}/>
+          </Route>
+          <Route path='/'>
+            <Home history={history} />
           </Route>
         </Switch>
       </Router>

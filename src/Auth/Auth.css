@@ -1,0 +1,42 @@
+/*		LOGIN 		*/
+.AuthFooter {
+	background-color: #f1dbcf;
+	height: 100px;
+}
+
+.LoginContainer, .RegisterContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	color: white;
+}
+
+.LoginBody {
+	background: -webkit-linear-gradient(top, rgba(222,170,156,1) 0%, rgba(151,87,71,1) 100%);
+	display: flex;
+	align-items: center;
+	flex-direction: column;	
+	height: 80vh;
+}
+
+.LoginBody > div {
+	margin: 50px;
+}
+
+.FormContainer > Form, .RegisterContainer > Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.New {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.LoginNewButtons {
+	display: flex;
+	flex-direction: row;
+	margin: 50px;
+}

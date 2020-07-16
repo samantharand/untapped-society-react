@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchCompany from './SearchCompany';
 
 export default class JobPostForm extends Component {
   constructor() {
@@ -10,8 +11,9 @@ export default class JobPostForm extends Component {
       officeLocation: "",
       jobType: "",
       educationLevel: "",
-      careerlevel: "",
-      compensation: ""
+      careerLevel: "",
+      compensation: "",
+      company: ""
     }
   }
   // Onchange handler
@@ -19,18 +21,38 @@ export default class JobPostForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  // select company 
+  selectCompany = (id) => {
+    this.setState({company: id})
+  }
+
+  // Submit handler
+  onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await this.props.createJobPost(this.state);
+      console.log('onsubmit');
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   render() {
     const { title, description, functionality, 
       officeLocation, jobType, educationLevel,
-      careerlevel, compensation } = this.state;
+      careerLevel, compensation } = this.state;
     return (
-      <form>
+      <form onSubmit={this.onSubmit}>
         <label>Job Title</label>
         <input 
         placeholder='Job Title'
         name='title'
         value={title}
         onChange={this.onChange}
+        />
+        <SearchCompany 
+        name='company'
+        selectCompany={this.selectCompany}
         />
         <label>Description</label>
         <input 
@@ -70,8 +92,8 @@ export default class JobPostForm extends Component {
         <label>Career Level</label>
         <input 
         placeholder='Career Level'
-        name='careerlevel'
-        value={careerlevel}
+        name='careerLevel'
+        value={careerLevel}
         onChange={this.onChange}
         />
         <label>Compensation</label>

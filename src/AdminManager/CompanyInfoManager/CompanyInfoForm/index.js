@@ -16,7 +16,8 @@ export default class CompanyInfoForm extends Component {
       facebook: "",
       instagram: "",
       pinterest: "",
-      youtube: ""
+      youtube: "",
+      photo: ""
     }
   }
 
@@ -54,6 +55,28 @@ export default class CompanyInfoForm extends Component {
       console.error(err)
     }
   }
+
+  // cloudinary handler
+  handleSelectedFile = async (e) => {
+    const files = e.target.files
+    const data = new FormData()
+    const url = process.env.REACT_APP_CLOUDINARY_API_URL
+
+    data.append('file', files[0])
+    data.append('upload_preset', 'uptappedsociety')
+
+    const uploadImageResponse = await fetch(url, {
+      method: 'POST',
+      body: data
+    })
+
+    const file = await uploadImageResponse.json()
+
+    await this.setState({
+      photo: file.secure_url
+    })
+  }
+
   render() {
     const {
       name, description, tagline, address, industry,
@@ -62,6 +85,12 @@ export default class CompanyInfoForm extends Component {
     } = this.state
     return (
       <form onSubmit={this.onCreate}>
+        <label> photo </label>
+        <input
+          name='photo'
+          type='file'
+          onChange={ this.handleSelectedFile }
+        />
         <label>Company name</label>
         <input 
         placeholder='Company name'
