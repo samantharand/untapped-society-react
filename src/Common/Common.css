@@ -66,8 +66,12 @@
 
 }
 
-.Nav > a, .UserNav > a, .LoginInfo > a, .LoginInfo {
+.Nav > a, .UserNav > a, .AuthLinks > a {
 	color: #935141;
 	font-size: 1.2em;
 	margin: 0 15px;
+}
+
+.AuthLinks {
+	color: #935141;
 }
