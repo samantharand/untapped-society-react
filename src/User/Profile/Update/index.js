@@ -7,7 +7,7 @@ class ProfileUpdate extends Component {
 		super()
 
 		this.state = {
-			eduction: props.currentUser.eduction,
+			education: props.currentUser.education,
 			name: props.currentUser.name,
 			date_of_birth: props.currentUser.date_of_birth,
 			email: props.currentUser.email,
@@ -59,7 +59,7 @@ class ProfileUpdate extends Component {
   	try {
 	  	
 	  	const result = await this.updateProfile({
-					education: this.state.eduction,
+					education: this.state.education,
 					name: this.state.name,
 					date_of_birth: this.state.date_of_birth,
 					email: this.state.email,

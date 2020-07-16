@@ -29,7 +29,7 @@ class Profile extends Component {
 			const profileResult = await fetch(url, {
 				credentials: 'include',
 				method: 'GET',
-	     		headers: {
+	     	headers: {
 	        'Content-Type': 'application/json'
 	      }
 			})
