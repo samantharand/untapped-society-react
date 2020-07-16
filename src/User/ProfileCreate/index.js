@@ -49,7 +49,7 @@ class ProfileCreate extends Component {
   	console.log('url :)', url);
 
   	if(submitProfileJson.status === 201) {
-  		// this.props.history.push('/home')
+  		this.props.history.push('/profile')
   	}
   }
 
