@@ -77,7 +77,6 @@ class Profile extends Component {
 						className='EditButton'
 						onClick={ () => this.props.history.push('/profile/update') }
 					> Edit Info </Button>
-					<this.props.Link to='/profile/update'> edit profile </this.props.Link>
 				</div>
 				<Segment>
 					<h4> maybe dont show this stuff? idk! </h4>

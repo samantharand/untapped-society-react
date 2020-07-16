@@ -12,7 +12,10 @@ export default class JobApplication extends Component {
 
 	// API call
 	applyForJob = async (applicationInfo) => {
-		const url = process.env.REACT_APP_API_URL + "api/v1/jobapplications/1/create/"
+		console.log('applicationInfo', applicationInfo);
+		const jobPostId = applicationInfo.position
+		console.log('jobPostId', jobPostId);
+		const url = process.env.REACT_APP_API_URL + "api/v1/jobapplications/" + jobPostId + "/create/"
 		console.log('url', url);
 
 		const applyForJobRes = await fetch(url, {
