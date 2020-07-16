@@ -72,7 +72,11 @@ export default class Profile extends Component {
 						<p> location: {profile.location} </p>
 						<p> skillset: {profile.skillset} </p>
 					</Segment>
-					<Button> Edit Info </Button>
+					<Button 
+						className='EditButton'
+						// onClick={ <this.props.Link to='/profile/update'/> }
+					> Edit Info </Button>
+					<this.props.Link to='/profile/update'> edit profile </this.props.Link>
 				</div>
 				<Segment>
 					<h4> maybe dont show this stuff? idk! </h4>

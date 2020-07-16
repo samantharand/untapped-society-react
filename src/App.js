@@ -39,13 +39,13 @@ function App() {
             <Register setCurrentUser={setCurrentUser}/>
           </Route>
           <Route path='/createprofile'>
-            <ProfileCreate/>
+            <ProfileCreate />
           </Route>
           <Route path='/profile/update'>
             <ProfileUpdate currentUser={currentUserProfile}/>
           </Route>
           <Route path='/profile'>
-            <Profile currentUser={currentUser} setCurrentUserProfile={setCurrentUserProfile}/>
+            <Profile currentUser={currentUser} setCurrentUserProfile={setCurrentUserProfile} Link={Link}/>
           </Route>
           <Route path='/'>
             <Home />

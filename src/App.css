@@ -3,7 +3,10 @@
   margin: 0 auto;
 }
 
-
+button.ui.button {
+	background-color: #fd8b6b;
+	color: white;
+}
 
 
 
