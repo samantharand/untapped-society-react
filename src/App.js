@@ -19,7 +19,14 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState({})
   const [currentUserProfile, setCurrentUserProfile] = useState({})
-
+  const footer = (
+    <div style={{
+      background: "#E0AB9D",
+      width: "100%",
+      height: "100px",
+      marginTop: "20px"
+    }}></div>
+  )
   return (
     <div>
       <Router className="App">
@@ -48,6 +55,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      {footer}
     </div>
   );
 }

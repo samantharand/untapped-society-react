@@ -140,6 +140,19 @@ export default class CompanyInfoForm extends Component {
             control={Input}
           />
         </Form.Group>
+        <Form.Group widths='equal'>
+          <Form.Input
+            label="INDUSTRY"
+            placeholder="Industry"
+            value={industry}
+            onChange={this.onChange}
+            name='industry'
+          />
+          <Form.Field
+            label="SIZE"
+            control={Input}
+          />
+        </Form.Group>
         <Divider />
         <strong>URLs</strong>
         <p>Where can Untapped Society users find you?</p>
