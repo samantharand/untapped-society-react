@@ -57,7 +57,7 @@ export default function Home(props){
 				<Button> Join </Button>
 				<Button> Post a job </Button>
 			</div>
-
+			<footer /> 
 		</div>
 	)
 }
