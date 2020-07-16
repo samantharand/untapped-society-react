@@ -21,13 +21,15 @@ let history = createBrowserHistory()
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState(null)
   const [currentUserProfile, setCurrentUserProfile] = useState({})
 
   return (
     <div>
       <Router className="App" history={ history }>
-        <Nav Link={Link}/>
+
+        <Nav Link={Link} currentUser={currentUser}/>
+
         <Switch>
           <Route path="/admin">
             <AdminManager/>
