@@ -8,10 +8,13 @@ function Home(props){
 	return (
 		<div className='HomeContainer'>
 			<div className='One'>
-				<h2> Striving for inclusivity and promoting diverse talent </h2>
-				<p> Becoming apart of our community or help others find opportunities </p>
-				<Button onClick={ () => props.history.push('/register') }> Join </Button>
-				<Button onClick={ () => props.history.push('/jobs') }> Post a job </Button>
+				<div>
+					<h2> Striving for inclusivity and promoting diverse talent </h2>
+					<p> Becoming apart of our community or help others find opportunities </p>
+					<Button onClick={ () => props.history.push('/register') }> Join </Button>
+					<Button onClick={ () => props.history.push('/jobs') }> Post a job </Button>
+				</div>
+				<img src='../../../assets/diverse_icon.png' />
 			</div>
 			<div className='Two'>
 				<div className='MentorshipContainer'>

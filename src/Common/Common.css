@@ -11,6 +11,7 @@
 .One, .ForJoining, .NoAccount {
 	background-color: #f6e6e0;
 	color: #935141;
+	display: flex;
 }
 
 .Two, .ForJoining {
@@ -52,7 +53,8 @@
 	background-color: #f1dbcf;
 	display: flex;
 	align-items: flex-end;
-	justify-content: space-between;
+	justify-content: space-around;
+	padding: 50px;
 
 }
 
