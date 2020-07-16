@@ -16,7 +16,8 @@ class ProfileUpdate extends Component {
 			ethinicity: props.currentUser.ethinicity,
 			skillset: props.currentUser.skillset,
 			industry: props.currentUser.industry,
-			payrange: props.currentUser.payrange 
+			payrange: props.currentUser.payrange,
+			photo: props.currentUser.photo
 		}
 	}
 
@@ -67,7 +68,8 @@ class ProfileUpdate extends Component {
 					ethinicity: this.state.ethinicity,
 					skillset: this.state.skillset,
 					industry: this.state.industry,
-					payrange: this.state.payrange 
+					payrange: this.state.payrange,
+					photo: this.state.photo
 	  	})
   		
   	} catch (error) {
@@ -76,13 +78,40 @@ class ProfileUpdate extends Component {
 
   }
 
+  // cloudinary handler
+  handleSelectedFile = async (e) => {
+  	const files = e.target.files
+  	const data = new FormData()
+  	const url = process.env.REACT_APP_CLOUDINARY_API_URL
+
+  	data.append('file', files[0])
+  	data.append('upload_preset', 'uptappedsociety')
+
+  	const uploadImageResponse = await fetch(url, {
+  		method: 'POST',
+  		body: data
+  	})
+
+  	const file = await uploadImageResponse.json()
+
+  	await this.setState({
+  		photo: file.secure_url
+  	})
+  }
+
 	render() {
 
-		const { education, name, date_of_birth, email, location, language, ethinicity, skillset, industry, payrange } = this.state
+		const { photo, education, name, date_of_birth, email, location, language, ethinicity, skillset, industry, payrange } = this.state
 		
 		return(
 			<div className='UpdateProfileContainer'>
 				<Form onSubmit={ this.onSubmit }>
+					<label> photo </label>
+					<input
+						name='photo'
+						type='file'
+						onChange={ this.handleSelectedFile }
+					/>
 					<Label> Education </Label>
 					<Input 
 						placeholder="Education"
