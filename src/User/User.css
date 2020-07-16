@@ -1,0 +1,41 @@
+/* 		USER PROFILE 		*/
+.UserProfileContainer {
+	color: #e27172;
+}
+
+.BasicInfoContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ui.segment.UserProfilePhotoContainer {
+  width: 250px;
+  height: 250px;
+  border-color: black;
+}
+
+.UserProfilePhotoContainer > img {
+  height: 100%;
+}
+
+.ui.segment.YourDetails, .ui.segment.PersonalInfoContainer {
+	border-color: #e27172;
+	width: 300px;
+	height: 250px;
+	color: black;
+}
+
+/*    UPDATE    */
+
+.UpdateProfileContainer {
+  width: 50%;
+}
+
+.UpdateProfileContainer > Form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+

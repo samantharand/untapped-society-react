@@ -71,22 +71,22 @@ export default class Login extends Component {
 
           <div className='New'>
             <p> New to Untapped Society? Please sign up below </p>
-            <Button> THE TALENT </Button>
-            <Button> THE EMPLOYER </Button>
+            <div className='LoginNewButtons'>
+              <Button> THE TALENT </Button>
+              <Button> THE EMPLOYER </Button>
+            </div>
             <p> or </p>
           </div>
 
 
           <div className='FormContainer'>
             <Form onSubmit={ this.onLogin }>
-              <Label> Username </Label>
               <Input 
                 placeholder='Username'
                 name='username'
                 value={ username }
                 onChange={ this.onChange }
               />
-              <Label> Password </Label>
               <Input 
                 placeholder='Password'
                 type='password'
@@ -94,10 +94,11 @@ export default class Login extends Component {
                 value={ password }
                 onChange={ this.onChange }
               />
+              <p> Forgot your password / haven't set a password? </p>
               <Button> Login </Button>
             </Form>
           </div>
-          
+
         </div>
 
         <footer className='AuthFooter'/> 

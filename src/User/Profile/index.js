@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Segment, Button } from 'semantic-ui-react'
+import '../User.css'
 
 export default class Profile extends Component {
 
@@ -53,7 +54,7 @@ export default class Profile extends Component {
 		const { profile } = this.state
 
 		return (
-			<React.Fragment>
+			<div  className='UserProfileContainer'>
 				<h1> Welcome, {profile.name} </h1>
 				<div className='BasicInfoContainer'>
 					<Segment className='UserProfilePhotoContainer'>
@@ -81,7 +82,7 @@ export default class Profile extends Component {
 					<p> language: {profile.language} </p>
 					<p> payrange: {profile.payrange} </p>
 				</Segment>
-			</React.Fragment>
+			</div>
 		)
 	}
 

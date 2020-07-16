@@ -5,6 +5,12 @@ export default function Nav(props) {
 	return (
 		<header> 
 			<div className='Nav'>
+				<props.Link to='/'> Home </props.Link>
+				<props.Link to='#'> About </props.Link>
+				<props.Link to='#'> Mentorship </props.Link>
+				<props.Link to='#'> Career Support </props.Link>
+				<props.Link to='#'> Messaging </props.Link>
+
 				<props.Link to='/profile/'> profile </props.Link>
 				<props.Link to='/profile/update'> edit profile </props.Link>
 				<props.Link to='/login'> login </props.Link>
