@@ -15,6 +15,7 @@ export default function Nav(props) {
 					<Icon name="user circle outline" size='large'/> 
 					<props.Link to='/login'> Log in </props.Link>
 				</div>
+
 				{
 					props.currentUser !== null
 					&&

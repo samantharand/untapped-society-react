@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import GoogleBtn from '../../GoogleBtn'
 import { Form, Button, Label, Input } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom'
 import '../Auth.css'
 
-export default class Login extends Component {
+class Login extends Component {
   constructor() {
     super()
 
@@ -36,8 +37,12 @@ export default class Login extends Component {
 
       const loginJson = await loginResult.json()
 
+      if(loginJson.status === 200) {
+        this.props.setCurrentUser(loginJson.data)
+        await this.props.history.push('/home')
+      }
+
       // return loginJson
-      this.props.setCurrentUser(loginJson.data)
       console.log('loginJson', loginJson);
 
     } catch (error) {
@@ -72,8 +77,7 @@ export default class Login extends Component {
           <div className='New'>
             <p> New to Untapped Society? Please sign up below </p>
             <div className='LoginNewButtons'>
-              <Button> THE TALENT </Button>
-              <Button> THE EMPLOYER </Button>
+              <Button onClick = { () => this.props.history.push('/register') }> REGISTER </Button>
             </div>
             <p> or </p>
           </div>
@@ -106,3 +110,5 @@ export default class Login extends Component {
     )
   }
 }
+
+export default withRouter(Login)

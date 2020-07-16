@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Segment, Button } from 'semantic-ui-react'
+import { withRouter } from "react-router-dom"
 import '../User.css'
 
-export default class Profile extends Component {
+class Profile extends Component {
 
 	constructor() {
 		super()
@@ -74,7 +75,7 @@ export default class Profile extends Component {
 					</Segment>
 					<Button 
 						className='EditButton'
-						// onClick={ <this.props.Link to='/profile/update'/> }
+						onClick={ () => this.props.history.push('/profile/update') }
 					> Edit Info </Button>
 					<this.props.Link to='/profile/update'> edit profile </this.props.Link>
 				</div>
@@ -89,5 +90,6 @@ export default class Profile extends Component {
 			</div>
 		)
 	}
-
 }
+
+export default withRouter(Profile)

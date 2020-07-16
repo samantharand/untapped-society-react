@@ -20,7 +20,7 @@ export default class Register extends Component {
 
   // API call
   register = async (registerInfo) => {
-    const url = process.env.REACT_APP_API_URL + "/api/v1/users/create"
+    const url = process.env.REACT_APP_API_URL + "api/v1/users/create"
 
     try {
       
@@ -87,8 +87,6 @@ export default class Register extends Component {
           />
           <Button onClick={ this.onRegister }> Register </Button>
         </Form>
-        <p> Or register using google </p>
-        <GoogleBtn />
       </div>
     )
   }
