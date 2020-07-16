@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Form, Button, Label, Input, Select } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom'
 
-export default class ProfileUpdate extends Component {
+class ProfileUpdate extends Component {
 	constructor(props) {
 		super()
 
@@ -42,6 +43,10 @@ export default class ProfileUpdate extends Component {
 
   	const updateProfileJson = await updateProfileResponse.json()
   	console.log('updateProfileJson', updateProfileJson);
+
+  	if(updateProfileJson.status === 200) {
+  		this.props.history.push('/profile')
+  	}
   }
 
   // event handler
@@ -159,3 +164,5 @@ export default class ProfileUpdate extends Component {
 		)
 	}
 }
+
+export default withRouter(ProfileUpdate)

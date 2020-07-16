@@ -43,6 +43,8 @@ class Register extends Component {
       // console.log('registerJson', registerJson);
       // return registerJson
       if(registerJson.status === 201) {
+
+        this.props.setCurrentUser(registerJson.data)
         this.props.history.push('/createprofile')
       }
 

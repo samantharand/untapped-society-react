@@ -13,18 +13,20 @@ export default class JobApplication extends Component {
 	// API call
 	applyForJob = async (applicationInfo) => {
 		console.log('applicationInfo', applicationInfo);
-		const jobPostId = applicationInfo.position
+		const jobPostId = applicationInfo.position.id
 		console.log('jobPostId', jobPostId);
-		const url = process.env.REACT_APP_API_URL + "api/v1/jobapplications/" + jobPostId + "/create/"
+
+		const url = process.env.REACT_APP_API_URL + 'api/v1/jobapplications/' + jobPostId + "/create"
+		
 		console.log('url', url);
 
 		const applyForJobRes = await fetch(url, {
-	    credentials: 'include',
-	    method: "POST",
-	    body: JSON.stringify(applicationInfo),
-	    headers: {
-	      'Content-Type': 'application/json'
-	    }
+		    credentials: 'include',
+		    method: "POST",
+		    body: JSON.stringify(applicationInfo),
+		    headers: {
+		      'Content-Type': 'application/json'
+	  	  }
 		})
 
 		console.log('applyForJobRes', applyForJobRes);
@@ -41,8 +43,8 @@ export default class JobApplication extends Component {
 		try {
 			
 			const result = await this.applyForJob({
-				position: this.props.jobPost.id,
-				jobseeker: this.props.currentUser.id
+				position: this.props.jobPost,
+				jobseeker: this.props.currentUser
 			})
 
 		} catch (error) {
