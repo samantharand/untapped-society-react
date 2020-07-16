@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import GoogleBtn from '../../GoogleBtn'
 import RegisterEmployer from './RegisterEmployer';
 import { Form, Button, Label, Input } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom'
 
-export default class Register extends Component {
+class Register extends Component {
   constructor() {
   	super()
 
@@ -41,6 +42,9 @@ export default class Register extends Component {
       const registerJson = await registerResult.json()
       // console.log('registerJson', registerJson);
       // return registerJson
+      if(registerJson.status === 201) {
+        this.props.history.push('/createprofile')
+      }
 
     } catch (error) {
       console.error(error)
@@ -92,10 +96,9 @@ export default class Register extends Component {
           />
           <Button onClick={ this.onRegister }> Register </Button>
         </Form>
-        <p> Or register using google </p>
-        <GoogleBtn />
       </div>
     )
+
     const EmployerRegister = (
       <RegisterEmployer />
     )
@@ -109,3 +112,5 @@ export default class Register extends Component {
     )
   }
 }
+
+export default withRouter(Register)

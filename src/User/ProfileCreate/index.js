@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
-export default class ProfileCreate extends Component {
+class ProfileCreate extends Component {
 	constructor() {
 		super()
 
@@ -40,8 +41,16 @@ export default class ProfileCreate extends Component {
 
   	const submitProfileJson = await submitProfileResponse.json()
 
+  	if(submitProfileJson.status === 200) {
+  		this.props.history.push('/profile')
+  	}
+
   	console.log('submitProfileJson', submitProfileJson);
   	console.log('url :)', url);
+
+  	if(submitProfileJson.status === 201) {
+  		this.props.history.push('/profile')
+  	}
   }
 
   // event handler
@@ -189,3 +198,5 @@ export default class ProfileCreate extends Component {
 		)
 	}
 }
+
+export default withRouter(ProfileCreate)

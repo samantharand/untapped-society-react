@@ -34,34 +34,65 @@ function App() {
   return (
     <div>
       <Router className="App" history={ history }>
+<<<<<<< HEAD
+        <Nav Link={Link} currentUser={currentUser}/>
+=======
 
         <Nav Link={Link} currentUser={currentUser}/>
 
+>>>>>>> d645e5c053d2a4fbfd745418791cffdc4f515034
         <Switch>
+
           <Route path="/admin">
             <AdminManager/>
           </Route>
+
           <Route path="/jobs">
-            <JobBoardManager currentUser={currentUser}/>
+            <JobBoardManager 
+              currentUser={currentUser} 
+              history={ history }
+            />
           </Route>
+
           <Route path='/login'>
-            <Login setCurrentUser={setCurrentUser}/>
+            <Login 
+              setCurrentUser={setCurrentUser} 
+              history={ history }
+            />
           </Route>
+
           <Route path='/register'>
-            <Register setCurrentUser={setCurrentUser}/>
+            <Register 
+              setCurrentUser={setCurrentUser} 
+              history={ history }
+            />
           </Route>
+
           <Route path='/createprofile'>
-            <ProfileCreate />
+            <ProfileCreate history={ history }
+            />
           </Route>
+
           <Route path='/profile/update'>
-            <ProfileUpdate currentUser={currentUserProfile}/>
+            <ProfileUpdate 
+              currentUser={currentUserProfile} 
+              history={ history }
+            />
           </Route>
+
           <Route path='/profile'>
-            <Profile currentUser={currentUser} setCurrentUserProfile={setCurrentUserProfile} Link={Link}/>
+            <Profile 
+              currentUser={currentUser} 
+              setCurrentUserProfile={setCurrentUserProfile} 
+              Link={Link}
+              history={ history }
+            />
           </Route>
+
           <Route path='/'>
             <Home history={history} />
           </Route>
+
         </Switch>
       </Router>
       {footer}
