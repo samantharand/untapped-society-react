@@ -5,6 +5,7 @@ import { Icon } from 'semantic-ui-react'
 export default function Nav(props) {
 	return (
 		<header> 
+			<img src='../../../../assets/us_logo.png' />
 			<div className='Nav'>
 				<props.Link to='/'> Home </props.Link>
 				<props.Link to='#'> About </props.Link>

@@ -1,4 +1,5 @@
 /*		HOME 		*/
+
 .HomeFooter {
 	background-color: #e27172;
 	height: 100px;
@@ -45,13 +46,20 @@
 }
 
 
-/*		NAV 		*/
-.Nav {
+/*		HEADER 		*/
+
+header {
+	display: flex;
 	background-color: #f1dbcf;
+	justify-content: flex-end;
+	
+}
+
+.Nav {
+	/*background-color: #f1dbcf;*/
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
-	height: 150px;
 
 }
 
