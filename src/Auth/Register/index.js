@@ -25,7 +25,7 @@ export default class Register extends Component {
 
   // API call
   register = async (registerInfo) => {
-    const url = process.env.REACT_APP_API_URL + "/api/v1/users/create"
+    const url = process.env.REACT_APP_API_URL + "api/v1/users/create"
 
     try {
       
@@ -39,7 +39,7 @@ export default class Register extends Component {
       })
       // console.log('registerResult');
       const registerJson = await registerResult.json()
-      console.log('registerJson', registerJson);
+      // console.log('registerJson', registerJson);
       // return registerJson
 
     } catch (error) {
