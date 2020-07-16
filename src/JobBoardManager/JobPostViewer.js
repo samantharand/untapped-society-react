@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import JobPost from './JobPost';
 import JobPostDetail from './JobPostDetail';
 import { Grid } from 'semantic-ui-react';
+import JobApplication from '../JobApplication';
 
 export default class JobPostViewer extends Component {
   constructor() {
@@ -42,11 +43,16 @@ export default class JobPostViewer extends Component {
     console.log(this.state);
     const { jobPosts, selectedJob } = this.state;
     const JobPostList = jobPosts.map((jobPost, key) => {
-      return <JobPost 
-      jobPost={jobPost} 
-      selectJob={this.selectJob}
-      key={key}
-      />
+      return (
+        <div>
+          <JobPost 
+            jobPost={jobPost} 
+            selectJob={this.selectJob}
+            key={key}
+          />
+          <JobApplication currentUser={this.props.currentUser} jobPost={jobPost}/>
+        </div>
+        )
     })
     const JobGrid = () => {
       return (

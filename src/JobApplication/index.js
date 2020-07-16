@@ -12,7 +12,7 @@ export default class JobApplication extends Component {
 
 	// API call
 	applyForJob = async (applicationInfo) => {
-		const url = process.env.REACT_APP_API_URL + "/api/v1/jobapplications/1/create/"
+		const url = process.env.REACT_APP_API_URL + "api/v1/jobapplications/1/create/"
 		console.log('url', url);
 
 		const applyForJobRes = await fetch(url, {
@@ -38,8 +38,8 @@ export default class JobApplication extends Component {
 		try {
 			
 			const result = await this.applyForJob({
-				position: 1,
-				jobseeker: this.props.currentUser
+				position: this.props.jobPost.id,
+				jobseeker: this.props.currentUser.id
 			})
 
 		} catch (error) {

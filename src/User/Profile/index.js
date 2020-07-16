@@ -16,7 +16,7 @@ class Profile extends Component {
 	componentDidMount() {
 		console.log('this.props in user prof', this.props);
 
-		console.log('this.props.currentUser.id', this.props.currentUser.id);
+		// console.log('this.props.currentUser.id', this.props.currentUser.id);
 		this.getProfileDetails(this.props.currentUser.id)
 	}
 

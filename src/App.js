@@ -34,13 +34,9 @@ function App() {
   return (
     <div>
       <Router className="App" history={ history }>
-<<<<<<< HEAD
-        <Nav Link={Link} currentUser={currentUser}/>
-=======
 
         <Nav Link={Link} currentUser={currentUser}/>
 
->>>>>>> d645e5c053d2a4fbfd745418791cffdc4f515034
         <Switch>
 
           <Route path="/admin">
