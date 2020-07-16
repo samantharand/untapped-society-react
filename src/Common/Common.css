@@ -48,11 +48,12 @@
 
 /*		HEADER 		*/
 
-header {
-	display: flex;
+.NavHeader {
 	background-color: #f1dbcf;
-	justify-content: flex-end;
-	
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+
 }
 
 .Nav {
