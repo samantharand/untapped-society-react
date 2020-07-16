@@ -28,7 +28,6 @@ function App() {
     <div>
       <Router className="App" history={ history }>
         <Nav Link={Link}/>
-        <button onClick={ () => history.push('/register') }> HI </button> 
         <Switch>
           <Route path="/admin">
             <AdminManager/>
