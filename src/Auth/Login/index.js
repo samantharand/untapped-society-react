@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleBtn from '../../GoogleBtn'
 import { Form, Button, Label, Input } from 'semantic-ui-react'
+import '../Auth.css'
 
 export default class Login extends Component {
   constructor() {
@@ -64,27 +65,42 @@ export default class Login extends Component {
     const { username, password } = this.state
     return (
       <div className='LoginContainer'>
-        <h3> Login </h3>
-        <Form onSubmit={ this.onLogin }>
-          <Label> Username </Label>
-          <Input 
-            placeholder='Username'
-            name='username'
-            value={ username }
-            onChange={ this.onChange }
-          />
-          <Label> Password </Label>
-          <Input 
-            placeholder='Password'
-            type='password'
-            name='password'
-            value={ password }
-            onChange={ this.onChange }
-          />
-          <Button> Login </Button>
-        </Form>
-        <p> Or login using google </p>
-        <GoogleBtn />
+        <div className='LoginBody'>
+          <h1> Welcome! </h1>
+
+
+          <div className='New'>
+            <p> New to Untapped Society? Please sign up below </p>
+            <Button> THE TALENT </Button>
+            <Button> THE EMPLOYER </Button>
+            <p> or </p>
+          </div>
+
+
+          <div className='FormContainer'>
+            <Form onSubmit={ this.onLogin }>
+              <Label> Username </Label>
+              <Input 
+                placeholder='Username'
+                name='username'
+                value={ username }
+                onChange={ this.onChange }
+              />
+              <Label> Password </Label>
+              <Input 
+                placeholder='Password'
+                type='password'
+                name='password'
+                value={ password }
+                onChange={ this.onChange }
+              />
+              <Button> Login </Button>
+            </Form>
+          </div>
+          
+        </div>
+
+        <footer className='AuthFooter'/> 
       </div>
     )
   }
