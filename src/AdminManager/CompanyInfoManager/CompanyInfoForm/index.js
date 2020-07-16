@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { 
+  Form, Dropdown, TextArea, Input,
+  Divider
+} from 'semantic-ui-react';
 
 export default class CompanyInfoForm extends Component {
   constructor() {
@@ -84,99 +88,132 @@ export default class CompanyInfoForm extends Component {
       instagram, pinterest, youtube
     } = this.state
     return (
-      <form onSubmit={this.onCreate}>
-        <label> photo </label>
-        <input
-          name='photo'
-          type='file'
-          onChange={ this.handleSelectedFile }
-        />
-        <label>Company name</label>
-        <input 
-        placeholder='Company name'
-        name='name'
-        value={name}
-        onChange={this.onChange}
-        />
-        <label>Description</label>
-        <input 
-        placeholder='Describe your company'
-        name='description'
-        value={description}
-        onChange={this.onChange}
-        />
-        <label>Tagline</label>
-        <input 
-        placeholder='tagline'
-        name='tagline'
-        value={tagline}
-        onChange={this.onChange}
-        />
-        <label>Address</label>
-        <input 
-        placeholder='Address'
-        name='address'
-        value={address}
-        onChange={this.onChange}
-        />
-        <label>Website</label>
-        <input 
-        placeholder='Website'
-        name='website'
-        value={website}
-        onChange={this.onChange}
-        />
-        <label>linkedIn</label>
-        <input 
-        placeholder='LinkedIn'
-        name='linkedin'
-        value={linkedin}
-        onChange={this.onChange}
-        />
-        <label>Twitter</label>
-        <input 
-        placeholder='Twitter'
-        name='twitter'
-        value={twitter}
-        onChange={this.onChange}
-        />
-        <label>Github</label>
-        <input 
-        placeholder='Github'
-        name='github'
-        value={github}
-        onChange={this.onChange}
-        />
-        <label>Facebook</label>
-        <input 
-        placeholder='Facebook'
-        name='facebook'
-        value={facebook}
-        onChange={this.onChange}
-        />
-        <label>Instagram</label>
-        <input 
-        placeholder='Instagram'
-        name='instagram'
-        value={instagram}
-        onChange={this.onChange}
-        />
-        <label>Pinterest</label>
-        <input 
-        placeholder='Pinterest'
-        name='pinterest'
-        value={pinterest}
-        onChange={this.onChange}
-        />
-        <label>Youtube</label>
-        <input 
-        placeholder='Youtube'
-        name='youtube'
-        value={youtube}
-        onChange={this.onChange}
-        />
-        <button>Create</button>
-      </form>
+      <Form onSubmit={this.onCreate}>
+        <Form.Group widths='equal'>
+          <Form.Field>
+            <label>LOGO</label>
+            <input
+            name='photo'
+            type='file'
+            onChange={ this.handleSelectedFile }
+            />
+          </Form.Field>
+          <Form.Input
+            label="NAME"
+            placeholder='Company Name'
+            name='name'
+            value={name}
+            onChange={this.onChange}
+          />
+        </Form.Group>
+        <Form.Field>
+          <label>TAGLINE</label>
+          <input 
+          placeholder='keep it short and simple'
+          name='tagline'
+          value={tagline}
+          onChange={this.onChange}
+          />
+        </Form.Field>
+        <Form.Field>
+          <label>DESCRIPTION</label>
+          <TextArea 
+          placeholder='What do you do and how do you do it'
+          name='description'
+          value={description}
+          onChange={this.onChange}
+          />
+        </Form.Field>
+        <Divider />
+        <strong>Meta Data</strong>
+        <p>Clearing these value could result in your company not appearing correctly in searches, match results and best companies lists.</p>
+        <Form.Group widths='equal'>
+          <Form.Input
+            label="LOCATION"
+            placeholder="City or zip"
+            value={address}
+            onChange={this.onChange}
+            name='address'
+          />
+          <Form.Field
+            label="COMPANY TYPE"
+            control={Input}
+          />
+        </Form.Group>
+        <Divider />
+        <strong>URLs</strong>
+        <p>Where can Untapped Society users find you?</p>
+        <Form.Group widths='equal'>
+          <Form.Input
+            label="WEBSITE"
+            placeholder='URL'
+            name='website'
+            value={website}
+            onChange={this.onChange}
+          />
+          <Form.Input
+            label="LINKEDIN"
+            placeholder='URL'
+            name='linkedin'
+            value={linkedin}
+            onChange={this.onChange}
+          />
+        </Form.Group>
+        <Form.Group widths='equal'>
+          <Form.Input
+            label="TWITTER"
+            placeholder='URL'
+            name='twitter'
+            value={twitter}
+            onChange={this.onChange}
+          />
+          <Form.Input
+            label="Github"
+            placeholder='URL'
+            name='github'
+            value={github}
+            onChange={this.onChange}
+          />
+        </Form.Group>
+        <Form.Group widths='equal'>
+          <Form.Input
+            label="FACEBOOK"
+            placeholder='URL'
+            name='facebook'
+            value={facebook}
+            onChange={this.onChange}
+          />
+          <Form.Input
+            label="INSTAGRAM"
+            placeholder='URL'
+            name='instagram'
+            value={instagram}
+            onChange={this.onChange}
+          />
+        </Form.Group>
+        <Form.Group widths='equal'>
+          <Form.Input
+            label="PINTEREST"
+            placeholder='URL'
+            name='pinterest'
+            value={pinterest}
+            onChange={this.onChange}
+          />
+          <Form.Input
+            label="YOUTUBE"
+            placeholder='URL'
+            name='youtube'
+            value={youtube}
+            onChange={this.onChange}
+          />
+        </Form.Group>
+        <Divider />
+        <div style={{textAlign: "center"}}>
+          <input type="checkbox" name="public"/>
+          <label for="public">Make this information visible on your company profile</label>
+          <Form.Button>Save Now</Form.Button>
+        </div>
+      </Form>
     )
   }
 }
