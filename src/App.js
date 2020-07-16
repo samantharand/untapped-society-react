@@ -15,6 +15,9 @@ import {
   Route,
   Link
 } from "react-router-dom"
+import { createBrowserHistory } from 'history'
+ 
+let history = createBrowserHistory()
 
 function App() {
 
@@ -23,8 +26,9 @@ function App() {
 
   return (
     <div>
-      <Router className="App">
+      <Router className="App" history={ history }>
         <Nav Link={Link}/>
+        <button onClick={ () => history.push('/register') }> HI </button> 
         <Switch>
           <Route path="/admin">
             <AdminManager/>
@@ -48,7 +52,7 @@ function App() {
             <Profile currentUser={currentUser} setCurrentUserProfile={setCurrentUserProfile} Link={Link}/>
           </Route>
           <Route path='/'>
-            <Home />
+            <Home history={history} />
           </Route>
         </Switch>
       </Router>

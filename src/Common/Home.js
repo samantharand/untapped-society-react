@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { Button, Icon } from 'semantic-ui-react'
 import './Common.css'
+import { withRouter } from "react-router-dom"
 
-export default function Home(props){
+function Home(props){
+	console.log(props);
 	return (
 		<div className='HomeContainer'>
 			<div className='One'>
 				<h2> Striving for inclusivity and promoting diverse talent </h2>
 				<p> Becoming apart of our community or help others find opportunities </p>
-				<Button> Join </Button>
+				<Button onClick={ () => { 
+					console.log(' push ') 
+					props.history.push('/register') 
+				} }> Join </Button>
 				<Button> Post a job </Button>
 			</div>
 			<div className='Two'>
@@ -61,3 +66,8 @@ export default function Home(props){
 		</div>
 	)
 }
+
+
+
+
+export default withRouter(Home)
