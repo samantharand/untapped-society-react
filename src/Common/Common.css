@@ -19,6 +19,29 @@
 	justify-content: space-between;
 }
 
+.MentorshipContainer, .NetworkContainer, .CareerContainer, .SkillsContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.MentorshipContainer {
+	color: #6991CB;
+}
+
+.NetworkContainer {
+	color: #C39BDE;
+}
+
+.CareerContainer {
+	color: #FF8D6A;
+}
+
+.SkillsContainer {
+	color: #E47472;
+}
+
 .AboutUs {
 	color: #e27172;
 }
