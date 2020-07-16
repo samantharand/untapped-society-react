@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleBtn from '../../GoogleBtn'
 import { Form, Button, Label, Input } from 'semantic-ui-react'
+import SearchCompany from './SearchCompany';
 
 export default class Register extends Component {
   constructor() {
@@ -17,7 +18,10 @@ export default class Register extends Component {
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
-
+  selectCompany = (id) => {
+    console.log('clicked')
+    this.setState({ company: id })
+  }
   // API call
   register = async (registerInfo) => {
     const url = process.env.REACT_APP_API_URL + "/api/v1/users/create"
@@ -51,7 +55,8 @@ export default class Register extends Component {
       const result = await this.register({
         username: this.state.username,
         password: this.state.password,
-        jobseeker: false
+        jobseeker: false,
+        company: this.state.company
       })
     }
   }
@@ -69,6 +74,7 @@ export default class Register extends Component {
             value={ username }
             onChange={ this.onChange }
           />
+          <SearchCompany selectCompany={this.selectCompany}/>
           <Label> Password </Label>
           <Input 
             placeholder='Password'

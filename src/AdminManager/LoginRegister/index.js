@@ -44,7 +44,8 @@ export default class LoginRegister extends Component {
         const result = await this.register({
           username: this.state.username,
           password: this.state.password,
-          jobseeker: false
+          jobseeker: false,
+          company: null
         })
         // console.log(result)
         this.props.loggedIn(result.data.id)

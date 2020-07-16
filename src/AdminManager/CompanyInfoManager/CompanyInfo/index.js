@@ -19,6 +19,7 @@ export default function CompanyInfo(props) {
     textAlign: "center",
     color: "#E47472"
   }
+  console.log(props.companyInfo)
   return (
     <React.Fragment>
       <Button onClick={props.toggleEdit}>edit</Button>
