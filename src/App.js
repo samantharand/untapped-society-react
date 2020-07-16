@@ -36,10 +36,10 @@ function App() {
             <JobBoardManager currentUser={currentUser}/>
           </Route>
           <Route path='/login'>
-            <Login setCurrentUser={setCurrentUser} />
+            <Login setCurrentUser={setCurrentUser} history={ history }/>
           </Route>
           <Route path='/register'>
-            <Register setCurrentUser={setCurrentUser}/>
+            <Register setCurrentUser={setCurrentUser} history={ history }/>
           </Route>
           <Route path='/createprofile'>
             <ProfileCreate />
@@ -52,7 +52,8 @@ function App() {
               currentUser={currentUser} 
               setCurrentUserProfile={setCurrentUserProfile} 
               Link={Link}
-              history={ history }/>
+              history={ history }
+            />
           </Route>
           <Route path='/'>
             <Home history={history} />
