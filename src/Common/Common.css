@@ -66,7 +66,7 @@
 
 }
 
-.Nav > a {
+.Nav > a, .UserNav > a, .LoginInfo > a, .LoginInfo {
 	color: #935141;
 	font-size: 1.2em;
 	margin: 0 15px;

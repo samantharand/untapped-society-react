@@ -12,15 +12,16 @@ export default function Nav(props) {
 				<props.Link to='#'> Mentorship </props.Link>
 				<props.Link to='#'> Career Support </props.Link>
 				<props.Link to='#'> Messaging </props.Link>
-				<div>
-					<Icon name="user circle outline" size='large'/> 
-					<props.Link to='/login'> Log in </props.Link>
-				</div>
 
 				{
-					props.currentUser !== null
-					&&
-					<div>
+					props.currentUser === null
+					?			
+					<div className='LoginInfo'>
+						<Icon name="user circle outline" size='large'/> 
+						<props.Link to='/login'> Log in </props.Link>
+					</div>
+					:
+					<div className='UserNav'>
 						<props.Link to='/profile/'> profile </props.Link>
 						<props.Link to='/createprofile'> new profile </props.Link>
 						<props.Link to='/jobs'> jobs </props.Link>
