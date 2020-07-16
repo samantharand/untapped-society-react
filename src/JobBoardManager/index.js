@@ -35,9 +35,10 @@ export default class JobBoardManager extends Component {
   render() {
     return (
       <React.Fragment>
-        <JobPostForm createJobPost={this.createJobPost}/>
-        <JobPostViewer currentUser={this.props.currentUser}/>
 
+        <JobPostViewer currentUser={this.props.currentUser}/>
+        {this.state.create && <JobPostForm createJobPost={this.createJobPost}/>}
+      
         <ViewApplication />
         <JobApplication currentUser={this.props.currentUser}/>
 

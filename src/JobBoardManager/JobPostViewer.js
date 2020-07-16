@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import JobPost from './JobPost';
 import JobPostDetail from './JobPostDetail';
+import { Grid } from 'semantic-ui-react';
 
 export default class JobPostViewer extends Component {
   constructor() {
@@ -47,16 +48,29 @@ export default class JobPostViewer extends Component {
       key={key}
       />
     })
+    const JobGrid = () => {
+      return (
+        <Grid padded>
+          {JobPostList}
+        </Grid>
+      )
+    }
+
     return(
-      <React.Fragment>
+      <div style={{
+        background: "#F5E7E1",
+        borderRadius: "10px",
+        margin: "auto 100px"
+      }}>
+        <h4>Job Post</h4>
         {
           selectedJob < 0
           ?
-          <ol>{JobPostList}</ol>
+          <JobGrid/>
           :
           <JobPostDetail jobPost={jobPosts[selectedJob]} currentUser={this.props.currentUser}/>
         }
-      </React.Fragment>
+      </div>
     )
   }
 }
