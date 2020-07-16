@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import JobPostForm from './JobPostForm';
-import JobApplication from '../JobApplication';
 import ViewApplication from '../JobApplication/ViewApplications';
 import JobPostViewer from './JobPostViewer';
+import JobApplication from '../JobApplication';
 
 
 export default class JobBoardManager extends Component {
@@ -26,7 +26,7 @@ export default class JobBoardManager extends Component {
         }
       })
       const json = await res.json();
-      console.log(json)
+      console.log('json', json)
     } catch (err) {
       console.error(err)
     }
@@ -35,10 +35,12 @@ export default class JobBoardManager extends Component {
   render() {
     return (
       <React.Fragment>
-        <JobApplication currentUser={this.props.currentUser}/>
-        <ViewApplication />
-        <JobPostViewer/>
         <JobPostForm createJobPost={this.createJobPost}/>
+        <JobPostViewer currentUser={this.props.currentUser}/>
+
+        <ViewApplication />
+        <JobApplication currentUser={this.props.currentUser}/>
+
 
       </React.Fragment>
     )

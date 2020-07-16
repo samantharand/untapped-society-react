@@ -1,0 +1,32 @@
+/*		HOME 		*/
+.One, .ForJoining, .NoAccount {
+	background-color: #f6e6e0;
+	color: #935141;
+}
+
+.Two, .ForJoining {
+	display: flex;
+	justify-content: space-between;
+}
+
+.ForJoining {
+	flex-direction: column;
+}
+
+.ForJoining > div {
+	display:  flex;
+	color: white;
+}
+
+/*		NAV 		*/
+.Nav {
+	background-color: #f1dbcf;
+}
+
+.JTC {
+	background-color: #e27172;
+}
+
+.JPA {
+	background-color: #f1aab7;
+}

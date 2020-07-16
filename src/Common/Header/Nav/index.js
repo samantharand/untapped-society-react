@@ -1,8 +1,9 @@
 import React from 'react'
+import '../../Common.css'
 
 export default function Nav(props) {
 	return (
-		<div>
+		<div className='Nav'>
 			<props.Link to='/profile/'> profile </props.Link>
 			|
 			<props.Link to='/profile/update'> edit profile </props.Link>

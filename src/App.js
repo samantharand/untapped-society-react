@@ -8,6 +8,7 @@ import ProfileCreate from './User/ProfileCreate'
 import Profile from './User/Profile'
 import ProfileUpdate from './User/Profile/Update'
 import Nav from './Common/Header/Nav'
+import Home from './Common/Home'
 import { 
   BrowserRouter as Router,
   Switch,
@@ -45,6 +46,9 @@ function App() {
           </Route>
           <Route path='/profile'>
             <Profile currentUser={currentUser} setCurrentUserProfile={setCurrentUserProfile}/>
+          </Route>
+          <Route path='/'>
+            <Home />
           </Route>
         </Switch>
       </Router>
