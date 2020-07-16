@@ -1,4 +1,7 @@
 /*		HOME 		*/
+.HomeContainer > div {
+	padding: 50px;
+}
 .One, .ForJoining, .NoAccount {
 	background-color: #f6e6e0;
 	color: #935141;
@@ -7,6 +10,10 @@
 .Two, .ForJoining {
 	display: flex;
 	justify-content: space-between;
+}
+
+.AboutUs {
+	color: #e27172;
 }
 
 .ForJoining {
@@ -18,9 +25,9 @@
 	color: white;
 }
 
-/*		NAV 		*/
-.Nav {
-	background-color: #f1dbcf;
+.ForJoining > div > div {
+	margin: 10px;
+	padding: 15px;
 }
 
 .JTC {
@@ -29,4 +36,18 @@
 
 .JPA {
 	background-color: #f1aab7;
+}
+
+
+/*		NAV 		*/
+.Nav {
+	background-color: #f1dbcf;
+	display: flex;
+	justify-content: flex-end;
+
+}
+
+.Nav > a {
+	color: #935141;
+	font-size: 1.2em;
 }
