@@ -15,6 +15,8 @@ export default class JobPostViewer extends Component {
 
   componentDidMount() {
     this.fetchJobs()
+    console.log('state in JobPostViewer', this.state);
+    console.log('props in JobPostViewer', this.props);
   }
 
   // api call to fetch all job posts
@@ -50,7 +52,7 @@ export default class JobPostViewer extends Component {
             selectJob={this.selectJob}
             key={key}
           />
-          <JobApplication currentUser={this.props.currentUser} jobPost={jobPost}/>
+          <JobApplication currentUser={this.props.currentUser} jobPost={jobPost} jobPost={jobPost}/>
         </div>
         )
     })
