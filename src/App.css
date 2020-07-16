@@ -3,58 +3,10 @@
   margin: 0 auto;
 }
 
-/*    AUTH    */
-
-.LoginContainer, .RegisterContainer {
-  width: 50%;
+button.ui.button {
+	background-color: #fd8b6b;
+	color: white;
 }
-
-.LoginContainer > Form, .RegisterContainer > Form {
-  display: flex;
-  flex-direction: column;
-}
-
-/*    USER    */
-
-.UpdateProfileContainer {
-  width: 50%;
-}
-
-.UpdateProfileContainer > Form {
-  display: flex;
-  flex-direction: column;
-}
-
-.BasicInfoContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.UserProfilePhotoContainer {
-  width: 250px;
-  height: 250px;
-}
-
-.UserProfilePhotoContainer > img {
-  height: 100%;
-}
-
-.PersonalInfoContainer {
-  width: 300px;
-  height: 250px;
-}
-
-.YourDetails {
-  width: 300px;
-  height: 250px;
-}
-
-
-
-
-
-
 
 
 

@@ -12,6 +12,10 @@ export default class JobPostViewer extends Component {
     }
   }
 
+  componentDidMount() {
+    this.fetchJobs()
+  }
+
   // api call to fetch all job posts
   fetchJobs = async () => {
     try {
@@ -64,7 +68,7 @@ export default class JobPostViewer extends Component {
           ?
           <JobGrid/>
           :
-          <JobPostDetail jobPost={jobPosts[selectedJob]}/>
+          <JobPostDetail jobPost={jobPosts[selectedJob]} currentUser={this.props.currentUser}/>
         }
       </div>
     )
