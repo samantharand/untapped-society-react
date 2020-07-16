@@ -27,7 +27,9 @@ function App() {
   return (
     <div>
       <Router className="App" history={ history }>
+
         <Nav Link={Link} currentUser={currentUser}/>
+
         <Switch>
           <Route path="/admin">
             <AdminManager/>

@@ -10,11 +10,8 @@ function Home(props){
 			<div className='One'>
 				<h2> Striving for inclusivity and promoting diverse talent </h2>
 				<p> Becoming apart of our community or help others find opportunities </p>
-				<Button onClick={ () => { 
-					console.log(' push ') 
-					props.history.push('/register') 
-				} }> Join </Button>
-				<Button> Post a job </Button>
+				<Button onClick={ () => props.history.push('/register') }> Join </Button>
+				<Button onClick={ () => props.history.push('/jobs') }> Post a job </Button>
 			</div>
 			<div className='Two'>
 				<div className='MentorshipContainer'>
@@ -59,8 +56,8 @@ function Home(props){
 				<h2> No account? No problem! </h2>
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 				<p> So what are you waiting for? Begin your journey today! </p>
-				<Button> Join </Button>
-				<Button> Post a job </Button>
+				<Button onClick={ () => props.history.push('/register') }> Join </Button>
+				<Button onClick={ () => props.history.push('/jobs') }> Post a job </Button>
 			</div>
 			<footer className='HomeFooter'/> 
 		</div>
