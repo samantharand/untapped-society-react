@@ -21,32 +21,52 @@ let history = createBrowserHistory()
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState(null)
   const [currentUserProfile, setCurrentUserProfile] = useState({})
 
   return (
     <div>
       <Router className="App" history={ history }>
-        <Nav Link={Link}/>
+        <Nav Link={Link} currentUser={currentUser}/>
         <Switch>
+
           <Route path="/admin">
             <AdminManager/>
           </Route>
+
           <Route path="/jobs">
-            <JobBoardManager currentUser={currentUser}/>
+            <JobBoardManager 
+              currentUser={currentUser} 
+              history={ history }
+            />
           </Route>
+
           <Route path='/login'>
-            <Login setCurrentUser={setCurrentUser} history={ history }/>
+            <Login 
+              setCurrentUser={setCurrentUser} 
+              history={ history }
+            />
           </Route>
+
           <Route path='/register'>
-            <Register setCurrentUser={setCurrentUser} history={ history }/>
+            <Register 
+              setCurrentUser={setCurrentUser} 
+              history={ history }
+            />
           </Route>
+
           <Route path='/createprofile'>
-            <ProfileCreate />
+            <ProfileCreate history={ history }
+            />
           </Route>
+
           <Route path='/profile/update'>
-            <ProfileUpdate currentUser={currentUserProfile}/>
+            <ProfileUpdate 
+              currentUser={currentUserProfile} 
+              history={ history }
+            />
           </Route>
+
           <Route path='/profile'>
             <Profile 
               currentUser={currentUser} 
@@ -55,9 +75,11 @@ function App() {
               history={ history }
             />
           </Route>
+
           <Route path='/'>
             <Home history={history} />
           </Route>
+
         </Switch>
       </Router>
     </div>

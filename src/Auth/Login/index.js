@@ -77,8 +77,7 @@ class Login extends Component {
           <div className='New'>
             <p> New to Untapped Society? Please sign up below </p>
             <div className='LoginNewButtons'>
-              <Button> THE TALENT </Button>
-              <Button> THE EMPLOYER </Button>
+              <Button onClick = { () => this.props.history.push('/register') }> REGISTER </Button>
             </div>
             <p> or </p>
           </div>
