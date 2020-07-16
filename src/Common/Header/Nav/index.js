@@ -24,7 +24,7 @@ export default function Nav(props) {
 						<props.Link to='/profile/'> profile </props.Link>
 						<props.Link to='/createprofile'> new profile </props.Link>
 						<props.Link to='/jobs'> jobs </props.Link>
-						<props.Link to='/login'> LOG OUT </props.Link>
+						<props.Link to='/logout'> LOG OUT </props.Link>
 					</div>
 				}
 			</div>

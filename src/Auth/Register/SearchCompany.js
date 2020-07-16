@@ -5,7 +5,8 @@ export default class SearchCompany extends Component {
     super();
     this.state = {
       query: "",
-      results: []
+      results: [],
+      selected: false
     }
   }
 
@@ -26,7 +27,7 @@ export default class SearchCompany extends Component {
   handleChange = (e) => {
     const query = e.target.value;
     if (!query) {
-      this.setState({ query, results: [] })
+      this.setState({ query, results: []})
     } else {
       this.setState({ query }, () => {
         this.fetchSearchResult(query)
@@ -34,13 +35,21 @@ export default class SearchCompany extends Component {
     }
   }
 
+  // handle select
+  handleSelect = (id, name) => {
+    this.props.selectCompany(id);
+    this.setState({
+      query: name,
+      results: []
+    })
+  }
   render() {
     const { query } = this.state;
     const results = this.state.results.map((result, key) => {
       return (
         <p
         key={key}
-        onClick={()=> this.props.selectCompany(result.id)}
+        onClick={()=> this.handleSelect(result.id, result.name)}
         >{result.name}</p>
         )
     })

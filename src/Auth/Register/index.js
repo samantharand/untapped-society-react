@@ -62,7 +62,8 @@ class Register extends Component {
       const result = await this.register({
         username: this.state.username,
         password: this.state.password,
-        jobseeker: true
+        jobseeker: true,
+        company: null
       })
     }
   }
