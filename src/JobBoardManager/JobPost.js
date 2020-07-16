@@ -21,7 +21,7 @@ export default function JobPost(props) {
       <Grid.Column width={9} style={gridStyle}>
         <strong>{jobPost.title}</strong>
         <p>{jobPost.company.name}</p>
-        <p>{jobPost.company.location}</p>
+        <p>{jobPost.company.address}</p>
         <p>{jobPost.description}</p>
       </Grid.Column>
     </Grid.Row>
