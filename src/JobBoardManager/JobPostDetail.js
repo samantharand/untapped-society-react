@@ -34,7 +34,7 @@ function JobPostDetail(props) {
         !props.currentUser.jobseeker
         &&
         <div>
-          <Button onClick={ () => props.history.push('/viewapplications')}> View Applications </Button>
+          <Button onClick={ () => props.history.push({ pathname: '/viewapplications', state: {jobPost: jobPost.id} } )}> View Applications </Button>
           <Button color='red'> Delete Job Post </Button>
         </div>
       }

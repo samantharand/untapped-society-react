@@ -102,6 +102,15 @@ function App() {
             />
           </Route>
 
+          <Route path='/jobs'>
+            <JobBoardManager 
+              currentUser={currentUser}
+              history={ history }
+            />
+          </Route>
+
+          
+
           <Route path='/'>
             <Home history={history} />
           </Route>
