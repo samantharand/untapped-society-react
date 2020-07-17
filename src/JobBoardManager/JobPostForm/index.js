@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchCompany from './SearchCompany';
+import { Form } from 'semantic-ui-react';
 
 export default class JobPostForm extends Component {
   constructor(props) {
@@ -20,7 +21,10 @@ export default class JobPostForm extends Component {
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
-
+  // on select
+  onSelect = (e, { value }) => {
+    this.setState({ jobType: value })
+  }
   // select company 
   selectCompany = (id) => {
     this.setState({company: id})
@@ -52,70 +56,106 @@ export default class JobPostForm extends Component {
   }
 
   render() {
+    console.log(this.state)
     const { title, description, functionality, 
       officeLocation, jobType, educationLevel,
       careerLevel, compensation } = this.state;
+    const divStyle = {
+      margin: "10px 200px"
+    }
+    const jobTypeOption = [
+    {
+      key: "Full Time",
+      text: "Full Time",
+      value: "Full Time"
+    },
+    {
+      key: "Part Time",
+      text: "Part Time",
+      value: "Part Time"
+    },
+    {
+      key: "Contract",
+      text: "Contract",
+      value: "Contract"
+    },
+    {
+      key: "Internship",
+      text: "Internship",
+      value: "Internship"
+    },
+    ]
     return (
-      <form onSubmit={this.onSubmit}>
-        <label>Job Title</label>
-        <input 
-        placeholder='Job Title'
-        name='title'
-        value={title}
-        onChange={this.onChange}
-        />
-        <label>Description</label>
-        <input 
-        placeholder='Describe this job'
-        name='description'
-        value={description}
-        onChange={this.onChange}
-        />
-        <label>Function</label>
-        <input 
-        placeholder='Function'
-        name='functionality'
-        value={functionality}
-        onChange={this.onChange}
-        />
-        <label>office location</label>
-        <input 
-        placeholder='office location'
-        name='officeLocation'
-        value={officeLocation}
-        onChange={this.onChange}
-        />
-        <label>Job Type</label>
-        <input 
-        placeholder='Job Type'
-        name='jobType'
-        value={jobType}
-        onChange={this.onChange}
-        />
-        <label>Education Level</label>
-        <input 
-        placeholder='Education Level'
-        name='educationLevel'
-        value={educationLevel}
-        onChange={this.onChange}
-        />
-        <label>Career Level</label>
-        <input 
-        placeholder='Career Level'
-        name='careerLevel'
-        value={careerLevel}
-        onChange={this.onChange}
-        />
-        <label>Compensation</label>
-        <input 
-        placeholder='Compensation'
-        name='compensation'
-        value={compensation}
-        onChange={this.onChange}
-        />
-      
-        <button>Create</button>
-      </form>
+      <div style={divStyle}>
+        <h2>Job Details</h2>
+        <p>provide details for this job</p>
+        <Form onSubmit={this.onSubmit}>
+          <Form.Input
+          label="JOB TITLE" 
+          placeholder='UX Designer, Software Engineer, etc'
+          name='title'
+          value={title}
+          onChange={this.onChange}
+          />
+          <Form.TextArea 
+          label="JOB DESCRIPTION"
+          placeholder='Describe this job'
+          name='description'
+          value={description}
+          onChange={this.onChange}
+          />
+          <Form.Input
+          label="LOCATION" 
+          placeholder='City, State, or remote'
+          name='officeLocation'
+          value={officeLocation}
+          onChange={this.onChange}
+          />
+          <Form.Group widths='equal'>
+            <Form.Input
+            label="FUNCTION"
+            placeholder='Main functionality of the job'
+            name='functionality'
+            value={functionality}
+            onChange={this.onChange}
+            />
+            <Form.Dropdown 
+            label="JOB TYPE"
+            placeholder='Choose one'
+            options={jobTypeOption}
+            name='jobType'
+            selection
+            value={jobType}
+            onChange={this.onSelect}
+            />
+          </Form.Group>
+          <Form.Group widths='equal'>
+            <Form.Input
+            label="EDUCATION (optional)"
+            placeholder='College, High School, etc...'
+            name='educationLevel'
+            value={educationLevel}
+            onChange={this.onChange}
+            />
+            <Form.Input
+            label="CAREER LEVEL (optional)" 
+            placeholder='Experienced, Entry-Level, etc...'
+            name='careerLevel'
+            value={careerLevel}
+            onChange={this.onChange}
+            />
+          </Form.Group>
+          <Form.Input
+          label="COMPENSATION (optional)"
+          placeholder='Compensation'
+          name='compensation'
+          value={compensation}
+          onChange={this.onChange}
+          />
+        
+          <Form.Button>Create Job</Form.Button>
+        </Form>
+      </div>
     )
   }
 }
