@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import AdminManager from './AdminManager'
 import JobBoardManager from './JobBoardManager';
+import EmployerDashboard from './EmployerDashboard';
 import Login from './Auth/Login'
 import Register from './Auth/Register'
 import ProfileCreate from './User/ProfileCreate'
@@ -43,8 +44,8 @@ function App() {
             <AdminManager/>
           </Route>
 
-          <Route path="/jobs">
-            <JobBoardManager 
+          <Route path="/dashboard">
+            <EmployerDashboard 
               currentUser={currentUser} 
               history={ history }
             />
