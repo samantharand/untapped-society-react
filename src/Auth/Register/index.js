@@ -103,7 +103,7 @@ class Register extends Component {
     )
 
     const EmployerRegister = (
-      <RegisterEmployer />
+      <RegisterEmployer setCurrentUser={this.props.setCurrentUser}/>
     )
     return (
       <React.Fragment>

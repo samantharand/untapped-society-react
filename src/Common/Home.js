@@ -12,7 +12,7 @@ function Home(props){
 					<h2> Striving for inclusivity and promoting diverse talent </h2>
 					<p> Becoming apart of our community or help others find opportunities </p>
 					<Button onClick={ () => props.history.push('/register') }> Join </Button>
-					<Button onClick={ () => props.history.push('/jobs') }> Post a job </Button>
+					<Button onClick={ () => props.history.push('/register') }> Post a job </Button>
 				</div>
 				<img src='../../../assets/diverse_icon.png' />
 			</div>
@@ -60,7 +60,7 @@ function Home(props){
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 				<p> So what are you waiting for? Begin your journey today! </p>
 				<Button onClick={ () => props.history.push('/register') }> Join </Button>
-				<Button onClick={ () => props.history.push('/jobs') }> Post a job </Button>
+				<Button onClick={ () => props.history.push('/register') }> Post a job </Button>
 			</div>
 			<footer className='HomeFooter'/> 
 		</div>

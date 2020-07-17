@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image } from 'semantic-ui-react';
+import { Grid, Image, Button } from 'semantic-ui-react';
 
 export default function JobPostDetail(props) {
   const jobPost = props.jobPost;
@@ -28,6 +28,15 @@ export default function JobPostDetail(props) {
         <p>{jobPost.description}</p>
         <p>Compensation: {jobPost.compensation}</p>
       </Grid.Column>
+
+      {
+        !props.currentUser.jobseeker
+        &&
+        <div>
+          <Button> View Applications </Button>
+          <Button color='red'> Delete Job Post </Button>
+        </div>
+      }
     </Grid>
   )
 }
