@@ -41,6 +41,8 @@ export default class Register extends Component {
       console.log('registerJson', registerJson);
       // return registerJson
 
+      this.props.setCurrentUser(registerJson.data)
+
     } catch (error) {
       console.error(error)
     }

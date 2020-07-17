@@ -3,6 +3,13 @@ import '../../Common.css'
 import { Icon } from 'semantic-ui-react'
 
 export default function Nav(props) {
+	let userNotJobSeeker;
+
+	if(props.currentUser !== null) {
+		if(!props.currentUser.jobseeker) {
+			userNotJobSeeker = true
+		}
+	}
 	return (
 		<header className='NavHeader'> 
 			<img src='../../../../assets/us_logo.png' />
@@ -27,6 +34,14 @@ export default function Nav(props) {
 						<props.Link to='/logout'> LOG OUT </props.Link>
 					</div>
 				}
+
+				{
+					userNotJobSeeker
+					&&
+					<props.Link to='/viewapplications'> View Apps </props.Link>
+				}
+
+
 			</div>
 		</header>
 	)

@@ -85,17 +85,6 @@ class ProfileCreate extends Component {
   	data.append('file', files[0])
   	data.append('upload_preset', 'uptappedsociety')
 
-
-  	console.log('handleSelectedFile');
-  	console.log('e', e);
-  	console.log('e.target', e.target);
-  	console.log('e.target.files', e.target.files);
-  	console.log('url', url);
-  	console.log('files', files);
-  	console.log('files[0]', files[0]);
-  	console.log('data', data);
-
-
   	const uploadImageResponse = await fetch(url, {
   		method: 'POST',
   		body: data

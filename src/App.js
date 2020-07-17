@@ -9,6 +9,7 @@ import Profile from './User/Profile'
 import ProfileUpdate from './User/Profile/Update'
 import Nav from './Common/Header/Nav'
 import Home from './Common/Home'
+import ViewApplications from './JobApplication/ViewApplications'
 import { 
   BrowserRouter as Router,
   Switch,
@@ -83,6 +84,10 @@ function App() {
               Link={Link}
               history={ history }
             />
+          </Route>
+
+          <Route path='/viewapplications'>
+            <ViewApplications currentUser={currentUser}/>
           </Route>
 
           <Route path='/'>
