@@ -7,7 +7,7 @@ export default class ViewApplication extends Component {
 		super() 
 
 		this.state = {
-			// companies: []
+			jobPosts: []
 		}
 	}
 
@@ -63,7 +63,8 @@ export default class ViewApplication extends Component {
 		const url = process.env.REACT_APP_API_URL + 'api/v1/jobposts/all'
 
 		try {
-			
+
+		// get all jobs posts
 			const jobPostsRes = await fetch(url, {
 					credentials: 'include'
 			})
@@ -74,13 +75,14 @@ export default class ViewApplication extends Component {
 				const jobPostsJson = await jobPostsRes.json()
 
 				console.log(jobPostsJson);
+				this.setState({
+					jobPosts: jobPostsJson.data
+				})
 			}
 			
 		} catch (error) {
 			console.error(error)
 		}
-		// get all jobs posts
-		// filter out based off company id
 	}
 
 	// getApplications = async (id) => {
@@ -117,8 +119,17 @@ export default class ViewApplication extends Component {
 		// deny removes from page
 
 	render() {
+		const { jobPosts } = this.state
+		const jobPostMap = jobPosts.map((jobPost, key) => {
+			return(
+				 <p> {jobPost.id} </p>
+			)
+		})
 		return(
-			<button onClick={ this.getJobs }> View Application </button>
+			<React.Fragment>
+				<button onClick={ this.getJobs }> View Application </button>
+				{jobPostMap}
+			</React.Fragment>
 		)
 	}
 
