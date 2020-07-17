@@ -11,6 +11,7 @@ import ProfileUpdate from './User/Profile/Update'
 import Nav from './Common/Header/Nav'
 import Home from './Common/Home'
 import ViewApplications from './JobApplication/ViewApplications'
+import AppsForJobPost from './JobApplication/ViewApplications/AppsForJobPost'
 import { 
   BrowserRouter as Router,
   Switch,
@@ -87,8 +88,18 @@ function App() {
             />
           </Route>
 
+          <Route path='/viewjobs'>
+            <ViewApplications 
+              currentUser={currentUser}
+              history={ history }
+            />
+          </Route>
+
           <Route path='/viewapplications'>
-            <ViewApplications currentUser={currentUser}/>
+            <AppsForJobPost 
+              currentUser={currentUser}
+              history={ history }
+            />
           </Route>
 
           <Route path='/'>

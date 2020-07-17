@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid, Image, Button } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom'
 
-export default function JobPostDetail(props) {
+function JobPostDetail(props) {
   const jobPost = props.jobPost;
   const gridStyle = {
     background: "white",
@@ -33,10 +34,12 @@ export default function JobPostDetail(props) {
         !props.currentUser.jobseeker
         &&
         <div>
-          <Button> View Applications </Button>
+          <Button onClick={ () => props.history.push('/viewapplications')}> View Applications </Button>
           <Button color='red'> Delete Job Post </Button>
         </div>
       }
     </Grid>
   )
 }
+
+export default withRouter(JobPostDetail)

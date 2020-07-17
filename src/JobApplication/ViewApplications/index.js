@@ -128,7 +128,6 @@ export default class ViewApplication extends Component {
 		})
 		return(
 			<React.Fragment>
-				<button onClick={ this.getJobs }> View Application </button>
 				{jobPostMap}
 			</React.Fragment>
 		)
