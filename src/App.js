@@ -11,6 +11,7 @@ import ProfileUpdate from './User/Profile/Update'
 import Nav from './Common/Header/Nav'
 import Home from './Common/Home'
 import ViewApplications from './JobApplication/ViewApplications'
+import JobApplicationContainer from './JobApplication/ViewApplications/JobApplicationContainer'
 import { 
   BrowserRouter as Router,
   Switch,
@@ -87,9 +88,28 @@ function App() {
             />
           </Route>
 
-          <Route path='/viewapplications'>
-            <ViewApplications currentUser={currentUser}/>
+          <Route path='/viewjobs'>
+            <ViewApplications 
+              currentUser={currentUser}
+              history={ history }
+            />
           </Route>
+
+          <Route path='/viewapplications'>
+            <JobApplicationContainer 
+              currentUser={currentUser}
+              history={ history }
+            />
+          </Route>
+
+          <Route path='/jobs'>
+            <JobBoardManager 
+              currentUser={currentUser}
+              history={ history }
+            />
+          </Route>
+
+          
 
           <Route path='/'>
             <Home history={history} />
