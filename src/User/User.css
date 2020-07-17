@@ -26,6 +26,15 @@
 	color: black;
 }
 
+.ui.segment.DetailContainer {
+  background-color: #F5E7E1;
+  color: #E47472;
+}
+
+.ui.segment.About {
+  color: black;
+}
+
 
 /*    UPDATE    */
 
