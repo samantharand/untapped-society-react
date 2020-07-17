@@ -3,13 +3,24 @@ import '../../Common.css'
 import { Icon } from 'semantic-ui-react'
 
 export default function Nav(props) {
-	let userNotJobSeeker;
 
-	if(props.currentUser !== null) {
-		if(!props.currentUser.jobseeker) {
-			userNotJobSeeker = true
-		}
-	}
+	console.log("!!!!!")
+	console.log(props.currentUser);
+	const jobseeker = (
+		<div className='UserNav'>
+			<props.Link to='/profile/'> profile </props.Link>
+			<props.Link to='/createprofile'> new profile </props.Link>
+			<props.Link to='/jobs'> jobs </props.Link>
+			<props.Link to='/logout'> LOG OUT </props.Link>
+		</div>
+	)
+	const employer = (
+		<div className='UserNav'>
+			<props.Link to='/dashboard'> Dashboard </props.Link>
+			<props.Link to='/logout'> LOG OUT </props.Link>
+		</div>
+	)
+
 	return (
 		<header className='NavHeader'> 
 			<img src='../../../../assets/us_logo.png' />
@@ -27,12 +38,13 @@ export default function Nav(props) {
 						<props.Link to='/login'> LOGIN </props.Link>
 					</div>
 					:
-					<div className='UserNav'>
-						<props.Link to='/profile/'> profile </props.Link>
-						<props.Link to='/createprofile'> new profile </props.Link>
-						<props.Link to='/jobs'> jobs </props.Link>
-						<props.Link to='/logout'> LOG OUT </props.Link>
-					</div>
+					(
+						props.currentUser.jobseeker
+						?
+						jobseeker
+						:
+						employer
+					)
 				}
 
 				{

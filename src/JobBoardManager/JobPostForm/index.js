@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import SearchCompany from './SearchCompany';
 
 export default class JobPostForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       title: "",
       description: "",
@@ -13,7 +13,7 @@ export default class JobPostForm extends Component {
       educationLevel: "",
       careerLevel: "",
       compensation: "",
-      company: ""
+      company: props.companyInfo.id
     }
   }
   // Onchange handler
@@ -29,9 +29,23 @@ export default class JobPostForm extends Component {
   // Submit handler
   onSubmit = async (e) => {
     e.preventDefault();
+    const { title, description, functionality, 
+      officeLocation, jobType, educationLevel,
+      careerLevel, compensation, company } = this.state;
     try {
-      await this.props.createJobPost(this.state);
+      await this.props.createJobPost({
+        company: company,
+        title: title,
+        description: description,
+        function: functionality,
+        officelocation: officeLocation,
+        jobtype: jobType,
+        educationlevel: educationLevel,
+        careerlevel: careerLevel,
+        compensation: compensation
+      });
       console.log('onsubmit');
+      this.props.toggleCreate();
     } catch (err) {
       console.error(err)
     }
@@ -49,10 +63,6 @@ export default class JobPostForm extends Component {
         name='title'
         value={title}
         onChange={this.onChange}
-        />
-        <SearchCompany 
-        name='company'
-        selectCompany={this.selectCompany}
         />
         <label>Description</label>
         <input 
