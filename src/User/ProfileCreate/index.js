@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-
+import { Form, Button, Label, Input } from 'semantic-ui-react'
+import '../../Auth/Auth.css'
 
 class ProfileCreate extends Component {
 	constructor() {
@@ -102,89 +103,78 @@ class ProfileCreate extends Component {
 		const { education, name, date_of_birth, email, location, language, ethinicity, skillset, industry, payrange } = this.state
 		
 		return (
-			<React.Fragment>
-				<form onSubmit={ this.onSubmit }>
-					<label> photo </label>
-					<input
-						name='photo'
-						type='file'
-						onChange={ this.handleSelectedFile }
-					/>
-					<label> Education </label>
-					<input 
-						placeholder="Education"
-						name='education'
-						value={ education }
-						onChange={ this.onChange }		
-					/>
-					<label>  Name </label>
-					<input 
-						placeholder="Name"
-						name='name'
-						value={ name }
-						onChange={ this.onChange }		
-					/>
-					<label> Date of Birth </label>
-					<input 
-						placeholder="Date of Birth"
-						name='date_of_birth'
-						type='date'
-						value={ date_of_birth }
-						onChange={ this.onChange }		
-					/>
-					<label> Email </label>
-					<input 
-						placeholder="Email"
-						name='email'
-						value={ email }
-						onChange={ this.onChange }		
-					/>
-					<label> location </label>
-					<input 
-						placeholder="location"
-						name='location'
-						value={ location }
-						onChange={ this.onChange }		
-					/>
-					<label> language </label>
-					<input 
-						placeholder="language"
-						name='language'
-						value={ language }
-						onChange={ this.onChange }		
-					/>
-					<label> ethinicity </label>
-					<input 
-						placeholder="ethinicity"
-						name='ethinicity'
-						value={ ethinicity }
-						onChange={ this.onChange }		
-					/>
-					<label> skillset </label>
-					<input 
-						placeholder="skillset"
-						name='skillset'
-						value={ skillset }
-						onChange={ this.onChange }		
-					/>
-					<label> industry </label>
-					<input 
-						placeholder="industry"
-						name='industry'
-						value={ industry }
-						onChange={ this.onChange }		
-					/>
-					<label> payrange </label>
-					<input 
-						placeholder="payrange"
-						name='payrange'
-						value={ payrange }
-						onChange={ this.onChange }		
-					/>
-					<button> Save Now </button>
-				</form>
-				<p> Skip this step </p>
-			</React.Fragment>
+			<div className='ProfileContainer'>
+				<div className='ProfileBody'>
+
+					<div className='FormContainer'>
+						<Form onSubmit={ this.onSubmit }>
+							<p> Photo </p>
+							<input
+								name='photo'
+								type='file'
+								onChange={ this.handleSelectedFile }
+							/>
+							<p>  Name </p>
+							<Input 
+								placeholder="Name"
+								name='name'
+								value={ name }
+								onChange={ this.onChange }		
+							/>
+							<p> Education </p>
+							<Input 
+								placeholder="Education"
+								name='education'
+								value={ education }
+								onChange={ this.onChange }		
+							/>
+							<p> Email </p>
+							<Input 
+								placeholder="Email"
+								name='email'
+								value={ email }
+								onChange={ this.onChange }		
+							/>
+							<p> Location </p>
+							<Input 
+								placeholder="Location"
+								name='location'
+								value={ location }
+								onChange={ this.onChange }		
+							/>
+							<p> Language </p>
+							<Input 
+								placeholder="Language"
+								name='language'
+								value={ language }
+								onChange={ this.onChange }		
+							/>
+							<p> Skillset </p>
+							<Input 
+								placeholder="Skillset"
+								name='skillset'
+								value={ skillset }
+								onChange={ this.onChange }		
+							/>
+							<p> Industry </p>
+							<Input 
+								placeholder="Industry"
+								name='industry'
+								value={ industry }
+								onChange={ this.onChange }		
+							/>
+							<p> Payrange </p>
+							<Input 
+								placeholder="Payrange"
+								name='payrange'
+								value={ payrange }
+								onChange={ this.onChange }		
+							/>
+							<Button> Save Now </Button>
+						</Form>
+					</div>
+				</div>
+			</div>
 		)
 	}
 }
