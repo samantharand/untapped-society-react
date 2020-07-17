@@ -104,91 +104,77 @@ class ProfileUpdate extends Component {
 		const { photo, education, name, date_of_birth, email, location, language, ethinicity, skillset, industry, payrange } = this.state
 		
 		return(
-			<div className='UpdateProfileContainer'>
-				<Form onSubmit={ this.onSubmit }>
-					<label> photo </label>
-					<input
-						name='photo'
-						type='file'
-						onChange={ this.handleSelectedFile }
-					/>
-					<Label> Education </Label>
-					<Input 
-						placeholder="Education"
-						name='education'
-						value={ education }
-						onChange={ this.onChange }		
-					/>
-					<Label>  Name </Label>
-					<Input 
-						placeholder="Name"
-						name='name'
-						value={ name }
-						onChange={ this.onChange }		
-					/>
-					<Label> Date of Birth </Label>
-					<Input 
-						placeholder="Date of Birth"
-						name='date_of_birth'
-						type='date'
-						value={ date_of_birth }
-						onChange={ this.onChange }		
-					/>
-					<Label> Email </Label>
-					<Input 
-						placeholder="Email"
-						name='email'
-						value={ email }
-						onChange={ this.onChange }		
-					/>
-					<Label> location </Label>
-					<Input 
-						placeholder="location"
-						name='location'
-						value={ location }
-						onChange={ this.onChange }		
-					/>
-					<Label> language </Label>
-					<Input 
-						placeholder="language"
-						name='language'
-						value={ language }
-						onChange={ this.onChange }		
-					/>
-					<Label> ethinicity </Label>
-					<Input 
-						placeholder="ethinicity"
-						name='ethinicity'
-						value={ ethinicity }
-						onChange={ this.onChange }		
-					/>
-					<Label> skillset </Label>
-					<Input 
-						placeholder="skillset"
-						name='skillset'
-						value={ skillset }
-						onChange={ this.onChange }		
-					/>
-					<Label> industry </Label>
-					<Input 
-						placeholder="industry"
-						name='industry'
-						value={ industry }
-						onChange={ this.onChange }		
-					/>
-					<Label> payrange </Label>
-					<select 
-						name='payrange' 
-						value={ payrange }
-						placeholder='Select Payrange'
-						>
-						<option value={ payrange }> 1-10 </option>
-						<option value={ payrange }> 11-20 </option>
-						<option value={ payrange }> 21-30 </option>
-					</select>
-					<Button> Save Now </Button>
-				</Form>
-				<p> Skip this step </p>
+			<div className='ProfileContainer'>
+				<div className='ProfileBody'>
+
+					<div className='FormContainer'>
+						<Form onSubmit={ this.onSubmit }>
+							<p> Photo </p>
+							<input
+								name='photo'
+								type='file'
+								onChange={ this.handleSelectedFile }
+							/>
+							<p>  Name </p>
+							<Input 
+								placeholder="Name"
+								name='name'
+								value={ name }
+								onChange={ this.onChange }		
+							/>
+							<p> Education </p>
+							<Input 
+								placeholder="Education"
+								name='education'
+								value={ education }
+								onChange={ this.onChange }		
+							/>
+							<p> Email </p>
+							<Input 
+								placeholder="Email"
+								name='email'
+								value={ email }
+								onChange={ this.onChange }		
+							/>
+							<p> Location </p>
+							<Input 
+								placeholder="Location"
+								name='location'
+								value={ location }
+								onChange={ this.onChange }		
+							/>
+							<p> Language </p>
+							<Input 
+								placeholder="Language"
+								name='language'
+								value={ language }
+								onChange={ this.onChange }		
+							/>
+							<p> Skillset </p>
+							<Input 
+								placeholder="Skillset"
+								name='skillset'
+								value={ skillset }
+								onChange={ this.onChange }		
+							/>
+							<p> Industry </p>
+							<Input 
+								placeholder="Industry"
+								name='industry'
+								value={ industry }
+								onChange={ this.onChange }		
+							/>
+							<p> Payrange </p>
+							<Input 
+								placeholder="Payrange"
+								name='payrange'
+								value={ payrange }
+								onChange={ this.onChange }		
+							/>
+							<Button> Save Now </Button>
+						</Form>
+					</div>
+				</div>
 			</div>
 		)
 	}
