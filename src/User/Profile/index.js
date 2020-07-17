@@ -79,6 +79,7 @@ class Profile extends Component {
 					> Edit Info </Button>
 				</div>
 				<Segment className='DetailContainer'>
+					<Segment> </Segment>
 					<h2> About </h2>
 					<Segment className='About'> 
 						<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim amet neque amet molestie tortor lectus. Elementum, vulputate potenti orci donec ultrices praesent. Velit pharetra dignissim etiam cras. Tempor augue hendrerit aliquam platea senectus lobortis curabitur risus. Volutpat elit facilisis proin eget vestibulum egestas. Lectus egestas cras enim mi eget. Ut amet id duis turpis enim in vitae aliquam et. Lectus pellentesque leo suspendisse leo, sem lacinia volutpat netus auctor. Fringilla mattis sed ligula pellentesque sit tempus aenean nunc. Nec, ut morbi feugiat mattis nibh. Curabitur cursus tempor, nulla urna nibh. Risus nam aliquam, purus tellus sit justo, id. Mauris, mi, vestibulum a a, duis purus a, lorem. Facilisi amet, vel cras enim cum iaculis sagittis. Tellus egestas senectus imperdiet ut. Urna risus commodo mattis vestibulum duis dolor tempor. Enim tellus diam, urna viverra. Aenean amet ornare diam ut est sit hendrerit vestibulum. Massa netus magnis sed porta vitae accumsan aliquam, sed. Posuere pharetra tempor porttitor purus sagittis nisl, egestas. Cursus aenean netus aliquet risus. Vitae cursus amet, volutpat nec a. Orci duis est, amet diam. Accumsan ornare vestibulum, amet sed ut ac. </p>
