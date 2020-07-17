@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import CompanyInfo from './CompanyInfo';
+import JobPostForm from '../JobBoardManager/JobPostForm';
 
 export default class EmployerDashboard extends Component {
   constructor() {
     super();
     this.state = {
-      companyInfo: null
+      companyInfo: null,
+      createNewJob: false
     }
   }
   // api call to get company info by id
@@ -25,6 +27,24 @@ export default class EmployerDashboard extends Component {
     }
   }
 
+  // api call to create new job post
+  createJobPost = async (info) => {
+    try {
+      const url = process.env.REACT_APP_API_URL + "api/v1/jobposts/create";
+      const res = await fetch(url, {
+        credentials: 'include',
+        method: "POST",
+        body: JSON.stringify(info),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const json = await res.json();
+      console.log('json', json)
+    } catch (err) {
+      console.error(err)
+    }
+  }
   componentDidMount = async () => {
     const id = this.props.currentUser.company;
     try {
@@ -33,10 +53,24 @@ export default class EmployerDashboard extends Component {
       console.error(err)
     }
   }
+  toggleCreate = () => {
+    this.setState({ createNewJob: !this.state.createNewJob });
+  }
   render() {
+    const { companyInfo, createNewJob } = this.state;
     return (
       <React.Fragment>
-        {this.state.companyInfo && <CompanyInfo companyInfo={this.state.companyInfo}/>}
+        {
+          createNewJob
+          ?
+          <JobPostForm 
+          createJobPost={this.createJobPost} 
+          companyInfo={companyInfo}
+          toggleCreate={this.toggleCreate}
+          />
+          :
+          companyInfo && <CompanyInfo companyInfo={companyInfo} toggleCreate={this.toggleCreate}/>
+        }
       </React.Fragment>
     )
   }

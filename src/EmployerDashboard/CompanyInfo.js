@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image } from 'semantic-ui-react';
+import { Grid, Image, Button } from 'semantic-ui-react';
 
 export default function CompanyInfo(props) {
   const {
@@ -18,9 +18,9 @@ export default function CompanyInfo(props) {
     textAlign: "center",
     color: "#E47472"
   }
-  console.log(props.companyInfo)
   return (
     <React.Fragment>
+      <Button onClick={()=> props.toggleCreate()}>Add Job</Button>
       <Grid>
         <Grid.Column width={4}>
           <Grid.Row style={titleStyle}>
