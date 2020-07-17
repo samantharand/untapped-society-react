@@ -86,34 +86,6 @@ export default class ViewApplication extends Component {
 		}
 	}
 
-	// getApplications = async (id) => {
-	// 	console.log('get applications id', id);
-	// 	try {
-
-	// 		const url = process.env.REACT_APP_API_URL + 'api/v1/jobapplications/all/' + id
-
-	// 		const checkApplicationsRes = await fetch(url, {
-	// 			credentials: 'include'
-	// 		})
-
-	// 		console.log('checkApplicationsRes', checkApplicationsRes);
-
-	// 		// const checkApplicationsJson = await checkApplicationsRes.json()
-	// 		// console.log('checkApplicationsJson', checkApplicationsJson);
-	// 		// if(checkApplicationsRes.status === 200) {
-
-	// 		// 	this.setState({
-	// 		// 		jobApps: checkApplicationsJson
-	// 		// 	})
-	// 		// 	this.checkApplications()
-	// 		// }
-			
-	// 	} catch (error) {
-	// 		console.error(error)
-	// 	}
-	// }
-	// get all applications on the database from that jobs id -- separate component
-
 	// maps out job applications -- another container specficlaly for them? 
 		// accept or deny buttons
 		// accept does something

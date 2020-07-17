@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, Image, Button } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom'
+import JobApplication from './JobApplication'
 
-class AppsForJobPost extends Component {
+class JobApplicationContainer extends Component {
 
 	constructor() {
 		super()
@@ -37,7 +38,6 @@ class AppsForJobPost extends Component {
 				this.setState({
 					jobApps: checkApplicationsJson
 				})
-				// this.checkApplications()
 			}
 			
 		} catch (error) {
@@ -51,13 +51,25 @@ class AppsForJobPost extends Component {
 		// 	// this.getApplications(
 		// 	console.log('hi');
 		// }
+		const { jobApps } = this.state
+		console.log('jobApps in render', jobApps);
 
+		const jobAppMap = jobApps.map(jobApp => {
+			return (
+				<JobApplication jobApp={jobApp}/>
+			)
+		})
+
+		console.log(jobAppMap);
 
 		return (
-			<p>job applications here baybeeee</p>
+			<>
+				{ jobAppMap }
+			</>
+
 		)
 
 	}
 }
 
-export default withRouter(AppsForJobPost)
+export default withRouter(JobApplicationContainer)
