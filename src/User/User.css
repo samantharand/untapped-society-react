@@ -35,6 +35,18 @@
   color: black;
 }
 
+.DetailContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.AboutAndExp {
+  margin-left: 25px;
+}
+
+div.ui.segment.JobApplicationDetails {
+  height: 100%;
+}
 
 /*    UPDATE    */
 

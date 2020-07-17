@@ -40,7 +40,6 @@ export default class JobBoardManager extends Component {
         {this.state.create && <JobPostForm createJobPost={this.createJobPost}/>}
       
         <ViewApplication />
-        <JobApplication currentUser={this.props.currentUser}/>
 
 
       </React.Fragment>
