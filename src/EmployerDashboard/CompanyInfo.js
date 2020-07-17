@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Image, Button } from 'semantic-ui-react';
-
+import { Grid, Image, Button, Card } from 'semantic-ui-react';
+import JobPost from './JobPost';
 export default function CompanyInfo(props) {
   const {
     name, description, tagline, address, 
@@ -18,6 +18,15 @@ export default function CompanyInfo(props) {
     textAlign: "center",
     color: "#E47472"
   }
+  const JobPosts = props.companyInfo.jobposts.map((jobPost, key)=> {
+    console.log(jobPost)
+    return (
+      <JobPost 
+        jobPost={jobPost} 
+        key={key}
+      />
+    )
+  })
   return (
     <React.Fragment>
       <Button onClick={()=> props.toggleCreate()}>Add Job</Button>
@@ -48,6 +57,7 @@ export default function CompanyInfo(props) {
         <Grid.Column width={8} stretched>
           <div style={colored}>
           <h4 style={{color: "#E47472"}}>Recent Job Post</h4>
+          <Card.Group>{JobPosts}</Card.Group>
           </div>
         </Grid.Column>
       </Grid>

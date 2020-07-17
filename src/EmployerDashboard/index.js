@@ -40,6 +40,8 @@ export default class EmployerDashboard extends Component {
         }
       })
       const json = await res.json();
+      const id = this.props.currentUser.company;
+      await this.getCompanyInfoById(id);
       console.log('json', json)
     } catch (err) {
       console.error(err)
@@ -58,6 +60,7 @@ export default class EmployerDashboard extends Component {
   }
   render() {
     const { companyInfo, createNewJob } = this.state;
+    console.log(companyInfo)
     return (
       <React.Fragment>
         {
