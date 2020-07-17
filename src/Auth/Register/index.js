@@ -3,6 +3,7 @@ import GoogleBtn from '../../GoogleBtn'
 import RegisterEmployer from './RegisterEmployer';
 import { Form, Button, Label, Input } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
+import '../Auth.css'
 
 class Register extends Component {
   constructor() {
@@ -72,33 +73,41 @@ class Register extends Component {
     const { username, password, checkPassword, jobseeker } = this.state
     const JobseekerRegister = (
       <div className='RegisterContainer'>
-        <Form onSubmit={ this.register }>
-          <h3> Register </h3>
-          <Label> Username </Label>
-          <Input 
-            placeholder='Username'
-            name='username'
-            value={ username }
-            onChange={ this.onChange }
-          />
-          <Label> Password </Label>
-          <Input 
-            placeholder='Password'
-            type='password'
-            name='password'
-            value={ password }
-            onChange={ this.onChange }
-          />
-          <Label> Confirm Password </Label>
-          <Input 
-            placeholder='Confirm Password'
-            type='password'
-            name='checkPassword'
-            value={ checkPassword }
-            onChange={ this.onChange }
-          />
-          <Button onClick={ this.onRegister }> Register </Button>
-        </Form>
+        <div className='RegisterBody'>
+
+          <div className='Statement'>
+            <h2> Create your profile! This will help us match you with the resources that fit your needs. </h2>
+          </div>
+
+          <div className='FormContainer'>
+            <Form onSubmit={ this.register }>
+              <h1> Hello! Tell us about you. </h1>
+              <Input 
+                placeholder='Username'
+                name='username'
+                value={ username }
+                onChange={ this.onChange }
+              />
+              <Input 
+                placeholder='Password'
+                type='password'
+                name='password'
+                value={ password }
+                onChange={ this.onChange }
+              />
+              <Input 
+                placeholder='Confirm Password'
+                type='password'
+                name='checkPassword'
+                value={ checkPassword }
+                onChange={ this.onChange }
+              />
+              <Button onClick={ this.onRegister }> Register </Button>
+            </Form>
+          </div>
+
+        </div>
+        <footer className='AuthFooter' />
       </div>
     )
 

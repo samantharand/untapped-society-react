@@ -105,7 +105,7 @@ class Login extends Component {
 
         </div>
 
-        <footer className='AuthFooter'/> 
+        <footer className='AuthFooter' /> 
       </div>
     )
   }

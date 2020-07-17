@@ -11,7 +11,7 @@
 	color: white;
 }
 
-.LoginBody {
+.LoginBody, .RegisterBody {
 	background: -webkit-linear-gradient(top, rgba(222,170,156,1) 0%, rgba(151,87,71,1) 100%);
 	display: flex;
 	align-items: center;
@@ -19,7 +19,17 @@
 	height: 80vh;
 }
 
-.LoginBody > div {
+.RegisterBody {
+	flex-direction: row;
+	justify-content: center;
+}
+
+.Statement > h2 {
+	width: 500px;
+	font-size: 2em;
+}
+
+.LoginBody > div, .RegisterBody > div {
 	margin: 50px;
 }
 
