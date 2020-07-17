@@ -48,9 +48,13 @@ export default class EmployerDashboard extends Component {
     }
   }
   componentDidMount = async () => {
-    const id = this.props.currentUser.company;
     try {
-      await this.getCompanyInfoById(id);
+      if (this.props.currentUser == null) {
+        await this.props.history.push('/')
+      } else {
+        const id = this.props.currentUser.company;
+        await this.getCompanyInfoById(id);
+      }
     } catch (err) {
       console.error(err)
     }

@@ -17,6 +17,7 @@ export default function Nav(props) {
 	const employer = (
 		<div className='UserNav'>
 			<props.Link to='/dashboard'> Dashboard </props.Link>
+			<props.Link to='/viewapplications'> View Apps </props.Link>
 			<props.Link to='/viewjobs'> View Job Posts </props.Link>
 			<props.Link to='/logout'> LOG OUT </props.Link>
 		</div>
@@ -47,7 +48,6 @@ export default function Nav(props) {
 						employer
 					)
 				}
-
 
 			</div>
 		</header>

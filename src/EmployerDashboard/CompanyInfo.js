@@ -8,18 +8,22 @@ export default function CompanyInfo(props) {
   } = props.companyInfo;
   const outline = {
     border: "1px solid #E47472",
-    borderRadius: "10px"
+    borderRadius: "10px",
+    padding: "20px"
   }
   const colored = {
     background: "#F5E7E1",
-    borderRadius: "10px"
+    borderRadius: "10px",
+    padding: "20px"
   };
   const titleStyle = {
     textAlign: "center",
     color: "#E47472"
   }
+  const divStyle = {
+    margin: "0 200px"
+  }
   const JobPosts = props.companyInfo.jobposts.map((jobPost, key)=> {
-    console.log(jobPost)
     return (
       <JobPost 
         jobPost={jobPost} 
@@ -28,7 +32,7 @@ export default function CompanyInfo(props) {
     )
   })
   return (
-    <React.Fragment>
+    <div style={divStyle}>
       <Button onClick={()=> props.toggleCreate()}>Add Job</Button>
       <Grid>
         <Grid.Column width={4}>
@@ -54,13 +58,13 @@ export default function CompanyInfo(props) {
             </div>
           </Grid.Row>
         </Grid.Column>
-        <Grid.Column width={8} stretched>
+        <Grid.Column width={12} stretched>
           <div style={colored}>
           <h4 style={{color: "#E47472"}}>Recent Job Post</h4>
           <Card.Group>{JobPosts}</Card.Group>
           </div>
         </Grid.Column>
       </Grid>
-    </React.Fragment>
+    </div>
   )
 }
