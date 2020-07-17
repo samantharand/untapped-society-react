@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import JobPostDetail from '../../JobBoardManager/JobPostDetail'
 
 export default class ViewApplication extends Component {
 	// gathers all job applications for a certain job and displays them 
@@ -122,7 +123,7 @@ export default class ViewApplication extends Component {
 		const { jobPosts } = this.state
 		const jobPostMap = jobPosts.map((jobPost, key) => {
 			return(
-				 <p> {jobPost.id} </p>
+				<JobPostDetail jobPost={jobPost} currentUser={ this.props.currentUser }/>
 			)
 		})
 		return(
